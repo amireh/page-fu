@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Ensure that your route&#39;s exit hook is invoked only when its enter hook was also invoked during the active dispatch. Hence, &quot;atomic&quot;." />
+
+    <title>withAtomicity</title>
+
+    
+    <link rel="stylesheet" href="../.megadoc/megadoc__styles.css" />
+    
+
+    
+  </head>
+
+  <body class="body--themed">
+    <div id="__app__"><div data-reactroot="" data-reactid="1" data-react-checksum="-329136983"><div data-reactid="2"></div><!-- react-empty: 3 --><div class="root root--with-multi-page-layout root--with-fixed-sidebar root--with-two-column-layout root--without-banner" data-reactid="4"><div class="root__screen" data-reactid="5"><div class="two-column-layout" data-reactid="6"><div class="two-column-layout__left" style="width:240px;" data-reactid="7"><div class="resizable-panel" data-reactid="8"><div class="resizable-panel__content" data-reactid="9"><div data-reactid="10"><div data-reactid="11"><nav data-reactid="12"><div data-reactid="13"><div data-reactid="14"><a href="../index.html" class="class-browser__entry-link" data-reactid="15"><!-- react-text: 16 -->page-fu
+<!-- /react-text --></a></div><div data-reactid="17"><a href="../examples.html" class="class-browser__entry-link" data-reactid="18"><!-- react-text: 19 -->Examples
+<!-- /react-text --></a></div><div data-reactid="20"><a href="../testing.html" class="class-browser__entry-link" data-reactid="21"><!-- react-text: 22 -->Testing
+<!-- /react-text --></a></div><div data-reactid="23"><a href="../changelog.html" class="class-browser__entry-link" data-reactid="24"><!-- react-text: 25 -->CHANGELOG
+<!-- /react-text --></a></div></div></nav></div><div data-reactid="26"><h3 class="layout__sidebar-header" data-reactid="27">API</h3></div><div data-reactid="28"><nav class="class-browser__listing" data-reactid="29"><div class="class-browser__category" data-reactid="30"><div class="class-browser__entry" data-reactid="31"><a href="Route.html" class="class-browser__entry-link" data-reactid="32"><!-- react-text: 33 -->Route<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="34"><a href="Router.html" class="class-browser__entry-link" data-reactid="35"><!-- react-text: 36 -->Router<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="37"><a href="page-fu.html" class="class-browser__entry-link" data-reactid="38"><!-- react-text: 39 -->page-fu<!-- /react-text --></a></div><div class="class-browser__entry class-browser__entry--active" data-reactid="40"><a href="" class="class-browser__entry-link active" data-reactid="41"><!-- react-text: 42 -->withAtomicity<!-- /react-text --></a><ul class="class-browser__methods" data-reactid="43"><li class="class-browser__methods-entity" data-reactid="44"><a title="withAtomicity#isActive" href="##isActive" class="" data-reactid="45">#isActive</a></li></ul></div><div class="class-browser__entry" data-reactid="46"><a href="withFirstClassMethods.html" class="class-browser__entry-link" data-reactid="47"><!-- react-text: 48 -->withFirstClassMethods<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="49"><a href="withHooks.html" class="class-browser__entry-link" data-reactid="50"><!-- react-text: 51 -->withHooks<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="52"><a href="withProps.html" class="class-browser__entry-link" data-reactid="53"><!-- react-text: 54 -->withProps<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="55"><a href="withRoutingAPIs.html" class="class-browser__entry-link" data-reactid="56"><!-- react-text: 57 -->withRoutingAPIs<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="58"><a href="withState.html" class="class-browser__entry-link" data-reactid="59"><!-- react-text: 60 -->withState<!-- /react-text --></a></div></div></nav></div><div data-reactid="61"><button title="Search (Ctrl+K or CMD+K)" type="button" class="btn btn-default sidebar-search-button" data-reactid="62">Search</button></div></div></div><div class="ui-resizable-handle ui-resizable-e" data-reactid="63"></div></div></div><div class="two-column-layout__right" style="margin-left:240px;" data-reactid="64"><div data-reactid="65"><div class="doc-content" data-reactid="66"><div data-reactid="67"><div class="class-view" data-reactid="68"><div data-reactid="69"><h1 class="class-view__header anchorable-heading" data-reactid="70"><span class="anchorable-heading__text" data-reactid="71">withAtomicity</span><!-- react-text: 72 --> <!-- /react-text --><!-- react-text: 73 --> <!-- /react-text --><span class="class-view__header-type" data-reactid="74"><span data-reactid="75"><span data-reactid="76">Factory</span></span></span></h1><div class="highlighted-text " data-reactid="77"><p>Ensure that your route&#39;s <code>exit</code> hook is invoked only when its <code>enter</code> hook
+was also invoked during the active dispatch. Hence, &quot;atomic&quot;.</p>
+<p>Consider the following scenario:</p>
+<pre class="language-javascript"><code><span class="token function" >page</span><span class="token punctuation" >(</span><span class="token string" >'/patients/new'</span><span class="token punctuation" >,</span> NewPatientRoute<span class="token punctuation" >.</span>enter<span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+page<span class="token punctuation" >.</span><span class="token function" >exit</span><span class="token punctuation" >(</span><span class="token string" >'/patients/new'</span><span class="token punctuation" >,</span> NewPatientRoute<span class="token punctuation" >.</span>exit<span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+<span class="token function" >page</span><span class="token punctuation" >(</span><span class="token string" >'/patients/:id'</span><span class="token punctuation" >,</span> PatientRoute<span class="token punctuation" >.</span>enter<span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+page<span class="token punctuation" >.</span><span class="token function" >exit</span><span class="token punctuation" >(</span><span class="token string" >'/patients/:id'</span><span class="token punctuation" >,</span> PatientRoute<span class="token punctuation" >.</span>exit<span class="token punctuation" >)</span><span class="token punctuation" >;</span></code></pre><p>Without the atomicity guard, exiting from <code>/patients/new</code> will also call the
+exit hook for <code>/patients/:id</code> since both of them match. However, the <code>enter</code>
+hook of only <code>/patients/new</code> will be invoked in case it does not call <code>next</code>
+to forward - a very common case - which could get the application into an
+undefined state.</p>
+<p>With the guard in place, however, you are assured that the <code>exit</code> hook of any
+one route will be run only if its <code>enter</code> hook was run as well during the
+current dispatch.</p>
+
+<h2 class="anchorable-heading">
+  <a name="isactive" class="anchorable-heading__anchor"></a>
+  <a href="#isactive" class="anchorable-heading__link icon icon-link"></a><span class="anchorable-heading__text"><code>isActive()</code>?</span>
+</h2><p>The decorator will also provide an <a href="/js/withAtomicity.html##isActive" title="You should use this hook any time you&#39;re performing asynchronous routines since the route may have become deactivated in the meantime." class="mega-link--internal">API</a> for
+querying whether the route is still active or not, which is necessary in
+asynchronous contexts where a handler may yield after the route has exited.</p>
+<p>Consider the following example:</p>
+<pre class="language-javascript"><code><span class="token keyword" >import</span> <span class="token punctuation" >{</span> withAtomicity <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'page-fu'</span><span class="token punctuation" >;</span>
+
+<span class="token keyword" >export</span> <span class="token keyword" >default</span> <span class="token function" >withAtomicity</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
+  <span class="token function" >enter</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token function" >fetch</span><span class="token punctuation" >(</span><span class="token string" >'http://www.google.com'</span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >then</span><span class="token punctuation" >(</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token operator" >=</span><span class="token operator" >></span> <span class="token punctuation" >{</span>
+      <span class="token keyword" >if</span> <span class="token punctuation" >(</span><span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >isActive</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+        <span class="token function" >alert</span><span class="token punctuation" >(</span><span class="token string" >'Response received!'</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+      <span class="token punctuation" >}</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >)</span>
+  <span class="token punctuation" >}</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >)</span></code></pre><p>Without the call to <code>isActive()</code> above, the route would&#39;ve had unwanted side-
+effects (<code>alert()</code>) had it been exited while the call to <code>fetch</code> was still
+in-flight.</p>
+</div></div><div data-reactid="78"><div data-reactid="79"><div data-reactid="80"><h2 class="doc-group__header" data-reactid="81">Instance Constructor</h2><div class="doc-entity collapsible--expanded" data-reactid="82"><h4 class="doc-entity__header collapsible-header" title="withAtomicity" data-reactid="83"><span class="anchorable-heading__text" data-reactid="84"><span class="doc-entity__name-fragment" data-reactid="85">withAtomicity</span><span class="doc-entity__function-signature" data-reactid="86">(<em>route</em>: Object)</span><span class="doc-entity__method-params" data-reactid="87"><!-- react-text: 88 --> -&gt; <!-- /react-text --><span class="js-type-names" data-reactid="89">Object</span></span></span></h4><div class="doc-entity__description" data-reactid="90"></div><div class="doc-entity__tags" data-reactid="91"><div class="tag-group tag-group--tabular collapsible tag-group--single-child" data-reactid="92"><h4 class="tag-group__header collapsible-header" data-reactid="93"><i class="icon collapser collapsible__icon icon-arrow-down" data-reactid="94"></i><!-- react-text: 95 -->Parameters (<!-- /react-text --><!-- react-text: 96 -->1<!-- /react-text --><!-- react-text: 97 -->)<!-- /react-text --></h4><table data-reactid="98"><tbody data-reactid="99"><tr class="param-tag" data-reactid="100"><td class="tag-group__primary-column" data-reactid="101"><header class="param-tag__header" data-reactid="102"><code class="param-tag__name" data-reactid="103">route</code></header></td><td data-reactid="104"><code class="param-tag__types" data-reactid="105"><span class="js-type-names" data-reactid="106">Object</span></code><!-- react-empty: 107 --></td></tr></tbody></table></div><div class="tag-group tag-group--tabular collapsible tag-group--single-child" data-reactid="108"><h4 class="tag-group__header collapsible-header" data-reactid="109"><i class="icon collapser collapsible__icon icon-arrow-down" data-reactid="110"></i><!-- react-text: 111 -->Return Value<!-- /react-text --></h4><table data-reactid="112"><tbody data-reactid="113"><tr class="param-tag" data-reactid="114"><td class="tag-group__primary-column" data-reactid="115"><header class="param-tag__header" data-reactid="116"><code class="param-tag__name" data-reactid="117">route</code></header></td><td data-reactid="118"><code class="param-tag__types" data-reactid="119"><span class="js-type-names" data-reactid="120">Object</span></code><!-- react-empty: 121 --></td></tr></tbody></table></div><!-- react-empty: 122 --><!-- react-empty: 123 --></div></div></div><div data-reactid="124"></div><div class="doc-group" data-reactid="125"><h2 class="doc-group__header" data-reactid="126">Instance Methods</h2><ul class="class-view__method-list" data-reactid="127"><div class="doc-entity collapsible collapsible--expanded" data-reactid="128"><h4 class="doc-entity__header collapsible-header anchorable-heading" title="isActive" data-reactid="129"><i class="icon collapser collapsible__icon icon-arrow-down" data-reactid="130"></i><a name="#isActive" class="anchorable-heading__anchor" data-reactid="131"></a><a class="anchorable-heading__link icon icon-link" href="##isActive" data-reactid="132"></a><span class="anchorable-heading__text" data-reactid="133"><span class="doc-entity__name-fragment" data-reactid="134">isActive</span><span class="doc-entity__function-signature" data-reactid="135">()</span><span class="doc-entity__method-params" data-reactid="136"><!-- react-text: 137 --> -&gt; <!-- /react-text --><span class="js-type-names" data-reactid="138">Boolean</span></span></span></h4><div class="doc-entity__description" data-reactid="139"><div class="highlighted-text " data-reactid="140"><p>You should use this hook any time you&#39;re performing asynchronous
+routines since the route may have become deactivated in the meantime.</p>
+<p>For those with a background in React, this is analogous to the
+<code>isMounted()</code> API provided to their components.</p>
+</div></div><div class="doc-entity__tags" data-reactid="141"><!-- react-empty: 142 --><div class="tag-group tag-group--tabular collapsible tag-group--single-child" data-reactid="143"><h4 class="tag-group__header collapsible-header" data-reactid="144"><i class="icon collapser collapsible__icon icon-arrow-down" data-reactid="145"></i><!-- react-text: 146 -->Return Value<!-- /react-text --></h4><table data-reactid="147"><tbody data-reactid="148"><tr class="param-tag" data-reactid="149"><td class="tag-group__primary-column" data-reactid="150"></td><td data-reactid="151"><code class="param-tag__types" data-reactid="152"><span class="js-type-names" data-reactid="153">Boolean</span></code><div class="highlighted-text param-tag__description" data-reactid="154"><p>Whether the route is active or not.</p>
+</div><!-- react-empty: 155 --></td></tr></tbody></table></div><!-- react-empty: 156 --><!-- react-empty: 157 --><!-- react-empty: 158 --><!-- react-empty: 159 --></div></div></ul></div></div></div></div></div></div><div class="footer" data-reactid="160"><div class="markdown-text " data-reactid="161">Crafted with &#9829; using <a href="https://github.com/megadoc">megadoc</a>.</div></div></div></div></div></div></div></div></div>
+
+    <!-- Prepare UMD container -->
+    <script>
+      window.exports = {};
+    </script>
+
+    <!-- Megadoc core scripts -->
+    
+    <script type="text/javascript" src="../.megadoc/megadoc__config.js"></script>
+    
+    <script type="text/javascript" src="../.megadoc/megadoc__vendor.js"></script>
+    
+    <script type="text/javascript" src="../.megadoc/megadoc.js"></script>
+    
+
+    <!-- Re-export common modules into MEGADOC_PUBLIC_MODULES -->
+    <script type="text/javascript" src="../.megadoc/megadoc__common.js"></script>
+    <script>
+      window.MEGADOC_PUBLIC_MODULES = exports['megadoc__common'];
+    </script>
+
+    <!-- Collect plugin script exports -->
+    
+    <script type="text/javascript" src="../.megadoc/megadoc-plugin-js.js"></script>
+    
+    <script type="text/javascript" src="../.megadoc/megadoc-plugin-markdown.js"></script>
+    
+    <script type="text/javascript" src="../.megadoc/megadoc-theme-minimalist.js"></script>
+    
+    <script type="text/javascript" src="../.megadoc/megadoc-plugin-inline.js"></script>
+    
+
+    <!-- Load the plugins and start the client -->
+    <script>
+      window.MEGADOC_PLUGINS = Object.keys(exports)
+        .filter(function(key) {
+          var obj = exports[key];
+
+          return (
+            obj &&
+            typeof obj === 'object' &&
+            typeof obj.name === 'string' &&
+            /megadoc-(theme|plugin)-/.test(obj.name)
+          );
+        })
+        .map(function(key) {
+          return exports[key];
+        })
+      ;
+
+      exports['megadoc'].startApp(Object.assign({}, exports['megadoc__config'], {
+        startingDocumentUID: "js/withAtomicity",
+        startingDocumentHref: "/js/withAtomicity.html",
+        plugins: window.MEGADOC_PLUGINS,
+      }));
+    </script>
+  </body>
+</html>
