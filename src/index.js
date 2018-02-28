@@ -85,7 +85,7 @@ export { default as withFirstClassMethods } from './withFirstClassMethods';
 export { default as withProps } from './withProps';
 
 /** @property {withState} */
-export { default as withState } from './withState';
+export { default as withState, StateTransaction } from './withState';
 
 /** @property {withRoutingAPIs} */
 export { default as withRoutingAPIs } from './withRoutingAPIs';

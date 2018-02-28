@@ -43,23 +43,20 @@ import ensureNextIsCalled from './ensureNextIsCalled';
 export default function withState(instance) {
   const { enter = Function.prototype } = instance;
   const exit = ensureNextIsCalled(instance.exit);
-  const state = {};
-
-  const replace = nextState => {
-    Object.keys(state).forEach(key => { delete state[key]; });
-    Object.assign(state, nextState);
-  };
 
   return Object.assign({}, instance, {
+
     enter(ctx, next) {
-      replace(this.getInitialState() || {});
+      this.state = this.getInitialState() || {};
+      this.__stateTransaction = null;
 
       enter.call(this, ctx, next);
     },
 
     exit(ctx, next) {
       exit.call(this, ctx, err => {
-        replace(this.getInitialState() || {});
+        this.__stateTransaction = null;
+        this.state = this.getInitialState() || {};
 
         next(err);
       });
@@ -70,7 +67,7 @@ export default function withState(instance) {
      *
      * The route's internal state which can be mutated using the state routines.
      */
-    state,
+    state: null,
 
     /**
      * @method
@@ -89,9 +86,7 @@ export default function withState(instance) {
      * @param {Object} partialState
      */
     setState(partialState) {
-      Object.assign(state, partialState);
-
-      this.stateDidChange();
+      setState(this, Object.assign({}, this.state, partialState));
     },
 
     /**
@@ -100,16 +95,14 @@ export default function withState(instance) {
      * @param  {Object} newState
      */
     replaceState(newState) {
-      replace(newState);
-
-      this.stateDidChange();
+      setState(this, newState);
     },
 
     /**
      * Reset the state.
      */
     clearState() {
-      this.replaceState(this.getInitialState() || {});
+      setState(this, this.getInitialState() || {});
     },
 
     /**
@@ -117,7 +110,67 @@ export default function withState(instance) {
      *
      * A hook that is invoked when the state changes through calls to
      * [[#setState]], [[#replaceState]] or [[#clearState]].
+     *
+     * @param {Object} prevState
      */
     stateDidChange: instance.stateDidChange || Function.prototype,
   })
 };
+
+function setState(route, nextState) {
+  if (route.__stateTransaction) {
+    route.__stateTransaction.push(nextState)
+  }
+  else {
+    applyStateTransition(route, nextState)
+  }
+}
+
+function applyStateTransition(route, nextState) {
+  const prevState = route.state
+
+  route.state = nextState
+  route.stateDidChange(prevState)
+}
+
+/**
+ * Freeze the state and all changes to it throughout a function. All calls to
+ * [[#setState]] and [[#replaceState]] will be buffered until the function
+ * returns, at which point they will be "replayed" but cause only one change
+ * to be triggered ([[#stateDidChange]].)
+ *
+ * @param {Route} route
+ * @param {Function} f
+ */
+export function StateTransaction(route, f) {
+  const reset = () => {
+    route.__stateTransaction = null;
+  }
+
+  let called
+
+  route.__stateTransaction = []
+
+  try {
+    f(route.state)
+  }
+  catch (e) {
+    reset()
+
+    throw e;
+  }
+
+  const transaction = route.__stateTransaction
+
+  called = transaction.length > 0
+
+  reset()
+
+  if (called) {
+    const nextState = transaction.reduce(function(acc, stateChange) {
+      return Object.assign({}, acc, stateChange)
+    }, {})
+
+    applyStateTransition(route, nextState)
+  }
+}

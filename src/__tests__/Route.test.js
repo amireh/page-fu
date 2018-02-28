@@ -29,21 +29,23 @@ describe('page-fu.Route', function() {
       enter() {},
 
       getUserId() {
-        return this.state.user && this.state.user.id || null;
+        return this.state.user.id;
       }
     })
 
     it('leaves APIs defined in the spec untouched', function() {
       const subject = MyRoute;
 
+      subject.enter({})
+
       assert.equal(typeof subject.getUserId, 'function');
-      assert.equal(subject.getUserId(), null);
+      assert.equal(subject.getUserId(), '1');
 
       subject.setState({
-        user: { id: '1' }
+        user: { id: '2' }
       })
 
-      assert.equal(subject.getUserId(), '1');
+      assert.equal(subject.getUserId(), '2');
     })
   })
 

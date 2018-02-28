@@ -1,3 +1,9 @@
+## 2.0.0
+
+- `withState` now passes the previous state to the `stateDidChange` hook
+- `StateTransaction` is a new facility for ensuring that the state remains
+  frozen throughout the block and any calls to `stateDidChange` are buffered
+
 ## 1.0.3
 
 - `withProps` now uses `ctx.querystring` for the initial query parameter
