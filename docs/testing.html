@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Testing routes at the unit-level should be possible and page-fu defines the handlers in a way that makes them testable even without page.js actually running (assuming, of course, that you will be stubbing calls to the routing APIs.)" />
+
+    <title>Testing
+</title>
+
+    
+    <link rel="stylesheet" href="megadoc-assets/megadoc__styles.css" />
+    
+
+    
+  </head>
+
+  <body class="body--themed">
+    <div id="__app__"><div data-reactroot="" data-reactid="1" data-react-checksum="-553844982"><div data-reactid="2"></div><!-- react-empty: 3 --><div class="root root--with-multi-page-layout root--with-fixed-sidebar root--with-two-column-layout root--without-banner" data-reactid="4"><div class="root__screen" data-reactid="5"><div class="two-column-layout" data-reactid="6"><div class="two-column-layout__left" style="width:240px;" data-reactid="7"><div class="resizable-panel" data-reactid="8"><div class="resizable-panel__content" data-reactid="9"><div data-reactid="10"><div data-reactid="11"><nav data-reactid="12"><div data-reactid="13"><div data-reactid="14"><a href="index.html" class="class-browser__entry-link" data-reactid="15"><!-- react-text: 16 -->page-fu
+<!-- /react-text --></a></div><div data-reactid="17"><a href="examples.html" class="class-browser__entry-link" data-reactid="18"><!-- react-text: 19 -->Examples
+<!-- /react-text --></a></div><div data-reactid="20"><a href="" class="class-browser__entry-link active" data-reactid="21"><!-- react-text: 22 -->Testing
+<!-- /react-text --></a><div data-reactid="23"><ul class="markdown-toc" data-reactid="24"><li class="markdown-toc__entry" data-reactid="25"><a href="#testing-the-enter-and-exit-hooks" class="" data-reactid="26">Testing the enter and exit hooks</a></li><li class="markdown-toc__entry" data-reactid="27"><a href="#testing-public-apis" class="" data-reactid="28">Testing public APIs</a></li><li class="markdown-toc__entry markdown-toc__entry--collapsible" data-reactid="29"><i class="icon icon-arrow-right" data-reactid="30"></i><a href="#testing-transitions" class="" data-reactid="31">Testing transitions</a><ul class="markdown-toc" data-reactid="32"><li class="markdown-toc__entry" data-reactid="33"><a href="#3testing" class="" data-reactid="34">Testing</a></li></ul></li></ul></div></div><div data-reactid="35"><a href="changelog.html" class="class-browser__entry-link" data-reactid="36"><!-- react-text: 37 -->CHANGELOG
+<!-- /react-text --></a></div></div></nav></div><div data-reactid="38"><h3 class="layout__sidebar-header" data-reactid="39">API</h3></div><div data-reactid="40"><nav class="class-browser__listing" data-reactid="41"><div class="class-browser__category" data-reactid="42"><div class="class-browser__entry" data-reactid="43"><a href="js/Route.html" class="class-browser__entry-link" data-reactid="44"><!-- react-text: 45 -->Route<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="46"><a href="js/Router.html" class="class-browser__entry-link" data-reactid="47"><!-- react-text: 48 -->Router<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="49"><a href="js/page-fu.html" class="class-browser__entry-link" data-reactid="50"><!-- react-text: 51 -->page-fu<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="52"><a href="js/withAtomicity.html" class="class-browser__entry-link" data-reactid="53"><!-- react-text: 54 -->withAtomicity<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="55"><a href="js/withFirstClassMethods.html" class="class-browser__entry-link" data-reactid="56"><!-- react-text: 57 -->withFirstClassMethods<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="58"><a href="js/withHooks.html" class="class-browser__entry-link" data-reactid="59"><!-- react-text: 60 -->withHooks<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="61"><a href="js/withProps.html" class="class-browser__entry-link" data-reactid="62"><!-- react-text: 63 -->withProps<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="64"><a href="js/withRoutingAPIs.html" class="class-browser__entry-link" data-reactid="65"><!-- react-text: 66 -->withRoutingAPIs<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="67"><a href="js/withState.html" class="class-browser__entry-link" data-reactid="68"><!-- react-text: 69 -->withState<!-- /react-text --></a></div></div></nav></div><div data-reactid="70"><button title="Search (Ctrl+K or CMD+K)" type="button" class="btn btn-default sidebar-search-button" data-reactid="71">Search</button></div></div></div><div class="ui-resizable-handle ui-resizable-e" data-reactid="72"></div></div></div><div class="two-column-layout__right" style="margin-left:240px;" data-reactid="73"><div data-reactid="74"><div class="doc-content" data-reactid="75"><div data-reactid="76"><div data-reactid="77"><div class="highlighted-text " data-reactid="78">
+<h1 class="anchorable-heading">
+  <a name="testing" class="anchorable-heading__anchor"></a>
+  <a href="#testing" class="anchorable-heading__link icon icon-link"></a><span class="anchorable-heading__text">Testing</span>
+</h1><p>Testing routes at the unit-level should be possible and page-fu defines the
+handlers in a way that makes them testable even <em>without</em> page.js actually
+running (assuming, of course, that you will be stubbing calls to the routing
+APIs.)</p>
+<p>There is very little &quot;cruft&quot; needed to define your tests. Namely, you will only
+need to provide a <a href="https://visionmedia.github.io/page.js/#context" target="_blank">routing
+context</a> for the route and call
+<code>enter</code> or <code>exit</code> as needed.</p>
+<p>Let us go through a few examples to see how we can test various aspects of our
+route handlers.</p>
+
+<h2 class="anchorable-heading">
+  <a name="testing-the-enter-and-exit-hooks" class="anchorable-heading__anchor"></a>
+  <a href="#testing-the-enter-and-exit-hooks" class="anchorable-heading__link icon icon-link"></a><span class="anchorable-heading__text">Testing the <code>enter</code> and <code>exit</code> hooks</span>
+</h2><p>In this example, the route will be fetching a user upon entering and we&#39;ll
+verify that it&#39;s making the correct call as well as using the data once it
+arrives.</p>
+<p>For this test, we&#39;ll assume <a href="http://sinonjs.org/" target="_blank">sinon</a> to be available to
+mock the requests, and an API called <code>fetch</code> that performs an XHR and yields
+JSON.</p>
+<pre class="language-javascript"><code><span class="token comment" spellcheck="true">// UserRoute.js</span>
+<span class="token keyword" >import</span> <span class="token punctuation" >{</span> Route <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'page-fu'</span><span class="token punctuation" >;</span>
+
+<span class="token keyword" >export</span> <span class="token keyword" >default</span> <span class="token function" >Route</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
+  <span class="token function" >getInitialState</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token keyword" >return</span> <span class="token punctuation" >{</span> user<span class="token punctuation" >:</span> <span class="token keyword" >null</span> <span class="token punctuation" >}</span>
+  <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+
+  <span class="token function" >enter</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token keyword" >const</span> <span class="token punctuation" >{</span> userId <span class="token punctuation" >}</span> <span class="token operator" >=</span> <span class="token keyword" >this</span><span class="token punctuation" >.</span>props<span class="token punctuation" >.</span>params<span class="token punctuation" >;</span>
+
+    <span class="token function" >fetch</span><span class="token punctuation" >(</span><span class="token template-string" ><span class="token string" >`/api/users/</span><span class="token interpolation" ><span class="token interpolation-punctuation punctuation" >${</span>userId<span class="token interpolation-punctuation punctuation" >}</span></span><span class="token string" >`</span></span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >then</span><span class="token punctuation" >(</span>user <span class="token operator" >=</span><span class="token operator" >></span> <span class="token punctuation" >{</span>
+      <span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >setState</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span> user <span class="token punctuation" >}</span><span class="token punctuation" >)</span>
+      <span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >render</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+    <span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >render</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span>
+  <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+
+  <span class="token function" >render</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token keyword" >if</span> <span class="token punctuation" >(</span><span class="token keyword" >this</span><span class="token punctuation" >.</span>state<span class="token punctuation" >.</span>user<span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+      console<span class="token punctuation" >.</span><span class="token function" >log</span><span class="token punctuation" >(</span><span class="token keyword" >this</span><span class="token punctuation" >.</span>state<span class="token punctuation" >.</span>user<span class="token punctuation" >.</span>name<span class="token punctuation" >)</span><span class="token punctuation" >;</span>     
+    <span class="token punctuation" >}</span>
+  <span class="token punctuation" >}</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >)</span></code></pre><p>Now for our test, we only need to call <code>enter</code> with some <a href="https://visionmedia.github.io/page.js/#context" target="_blank">page.js
+context</a> which will get
+processed by our route&#39;s decorators.</p>
+<pre class="language-javascript"><code><span class="token comment" spellcheck="true">// UserRoute.test.js</span>
+<span class="token keyword" >import</span> subject <span class="token keyword" >from</span> <span class="token string" >'./UserRoute'</span><span class="token punctuation" >;</span>
+<span class="token keyword" >import</span> sinon <span class="token keyword" >from</span> <span class="token string" >'...'</span><span class="token punctuation" >;</span>
+<span class="token keyword" >import</span> assert <span class="token keyword" >from</span> <span class="token string" >'...'</span><span class="token punctuation" >;</span>
+
+<span class="token function" >describe</span><span class="token punctuation" >(</span><span class="token string" >'UserRoute.enter'</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+  <span class="token function" >afterEach</span><span class="token punctuation" >(</span><span class="token keyword" >function</span><span class="token punctuation" >(</span>done<span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    subject<span class="token punctuation" >.</span><span class="token function" >exit</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span><span class="token punctuation" >}</span><span class="token punctuation" >,</span> done<span class="token punctuation" >)</span>
+  <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+  <span class="token function" >it</span><span class="token punctuation" >(</span><span class="token string" >'fetches the user pointed to by params'</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    subject<span class="token punctuation" >.</span><span class="token function" >enter</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
+      params<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        userId<span class="token punctuation" >:</span> <span class="token string" >'user1'</span>
+      <span class="token punctuation" >}</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+    assert<span class="token punctuation" >.</span><span class="token function" >equal</span><span class="token punctuation" >(</span>sinon<span class="token punctuation" >.</span>server<span class="token punctuation" >.</span>requests<span class="token punctuation" >.</span>length<span class="token punctuation" >,</span> <span class="token number" >1</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+    assert<span class="token punctuation" >.</span><span class="token function" >equal</span><span class="token punctuation" >(</span>sinon<span class="token punctuation" >.</span>server<span class="token punctuation" >.</span>requests<span class="token punctuation" >[</span><span class="token number" >0</span><span class="token punctuation" >]</span><span class="token punctuation" >.</span>url<span class="token punctuation" >,</span> <span class="token string" >'/api/users/user1'</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+  <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+  <span class="token function" >it</span><span class="token punctuation" >(</span><span class="token string" >'renders the user'</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    sinon<span class="token punctuation" >.</span><span class="token function" >stub</span><span class="token punctuation" >(</span>console<span class="token punctuation" >,</span> <span class="token string" >'log'</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+    subject<span class="token punctuation" >.</span><span class="token function" >enter</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
+      params<span class="token punctuation" >:</span> <span class="token punctuation" >{</span>
+        userId<span class="token punctuation" >:</span> <span class="token string" >'user1'</span>
+      <span class="token punctuation" >}</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+    sinon<span class="token punctuation" >.</span>server<span class="token punctuation" >.</span>requests<span class="token punctuation" >[</span><span class="token number" >0</span><span class="token punctuation" >]</span><span class="token punctuation" >.</span><span class="token function" >respond</span><span class="token punctuation" >(</span><span class="token punctuation" >[</span>
+      <span class="token number" >200</span><span class="token punctuation" >,</span>
+      <span class="token punctuation" >{</span> <span class="token string" >'Content-Type'</span><span class="token punctuation" >:</span> <span class="token string" >'application/json'</span> <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+      JSON<span class="token punctuation" >.</span><span class="token function" >stringify</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span> name<span class="token punctuation" >:</span> <span class="token string" >'The Banana King'</span> <span class="token punctuation" >}</span><span class="token punctuation" >)</span>
+    <span class="token punctuation" >]</span><span class="token punctuation" >)</span>
+
+    assert<span class="token punctuation" >.</span><span class="token function" >calledWith</span><span class="token punctuation" >(</span>console<span class="token punctuation" >.</span>log<span class="token punctuation" >,</span> <span class="token string" >'The Banana King'</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+  <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >)</span></code></pre><p>Testing the <code>exit</code> hook is similar but you should probably call <code>enter</code> first
+to simulate the real state the route will normally be in when <code>exit</code> is called.</p>
+
+<h2 class="anchorable-heading">
+  <a name="testing-public-apis" class="anchorable-heading__anchor"></a>
+  <a href="#testing-public-apis" class="anchorable-heading__link icon icon-link"></a><span class="anchorable-heading__text">Testing public APIs</span>
+</h2><p>This is also straight-forward except that you should call <code>enter</code> to prepare
+your route (that is, to apply the various decorators&#39; entry hooks.)</p>
+<p>Consider the following route which defines a <code>parseFile</code> API that gets called
+by the UI somewhere:</p>
+<pre class="language-javascript"><code><span class="token comment" spellcheck="true">// file: MyRoute.js</span>
+<span class="token keyword" >import</span> <span class="token punctuation" >{</span> Route <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'page-fu'</span><span class="token punctuation" >;</span>
+
+<span class="token keyword" >export</span> <span class="token keyword" >default</span> <span class="token function" >Route</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
+  <span class="token function" >parseFile</span><span class="token punctuation" >(</span>file<span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >setState</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span> parsing<span class="token punctuation" >:</span> <span class="token boolean" >true</span> <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+    <span class="token comment" spellcheck="true">// do something with file...</span>
+    <span class="token function" >doSomethingWithFile</span><span class="token punctuation" >(</span>file<span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >then</span><span class="token punctuation" >(</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token operator" >=</span><span class="token operator" >></span> <span class="token punctuation" >{</span>
+      <span class="token keyword" >if</span> <span class="token punctuation" >(</span><span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >isActive</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+        <span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >setState</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span> parsing<span class="token punctuation" >:</span> <span class="token boolean" >false</span> <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+      <span class="token punctuation" >}</span>
+    <span class="token punctuation" >}</span><span class="token punctuation" >)</span>
+  <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+
+  <span class="token function" >isParsingFile</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token keyword" >return</span> <span class="token keyword" >this</span><span class="token punctuation" >.</span>state<span class="token punctuation" >.</span>parsing<span class="token punctuation" >;</span>
+  <span class="token punctuation" >}</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >)</span></code></pre><pre class="language-javascript"><code><span class="token comment" spellcheck="true">// file: MyRoute.test.js</span>
+<span class="token keyword" >import</span> subject <span class="token keyword" >from</span> <span class="token string" >'./MyRoute'</span><span class="token punctuation" >;</span>
+<span class="token keyword" >import</span> <span class="token punctuation" >{</span> assert <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'chai'</span><span class="token punctuation" >;</span>
+
+<span class="token function" >describe</span><span class="token punctuation" >(</span><span class="token string" >'MyRoute.parseFile'</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+  <span class="token function" >afterEach</span><span class="token punctuation" >(</span><span class="token keyword" >function</span><span class="token punctuation" >(</span>done<span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    subject<span class="token punctuation" >.</span><span class="token function" >exit</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span><span class="token punctuation" >}</span><span class="token punctuation" >,</span> done<span class="token punctuation" >)</span>
+  <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+  <span class="token function" >it</span><span class="token punctuation" >(</span><span class="token string" >'works'</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token comment" spellcheck="true">// must initialize the route by invoking the decorators' entry hooks</span>
+    subject<span class="token punctuation" >.</span><span class="token function" >enter</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span><span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+    <span class="token comment" spellcheck="true">// now the route is ready to be interacted with</span>
+    subject<span class="token punctuation" >.</span><span class="token function" >parseFile</span><span class="token punctuation" >(</span>someFile<span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+    assert<span class="token punctuation" >.</span><span class="token function" >ok</span><span class="token punctuation" >(</span>subject<span class="token punctuation" >.</span><span class="token function" >isParsingFile</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >)</span>
+  <span class="token punctuation" >}</span><span class="token punctuation" >)</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >)</span></code></pre>
+<h2 class="anchorable-heading">
+  <a name="testing-transitions" class="anchorable-heading__anchor"></a>
+  <a href="#testing-transitions" class="anchorable-heading__link icon icon-link"></a><span class="anchorable-heading__text">Testing transitions</span>
+</h2><p>There&#39;s nothing special here since the routes will be invoking <a href="js/withRoutingAPIs.html" title="A cute and simple decorator that allows direct access to the [[router | Router]]&#39;s primary routines." class="mega-link--internal">instance
+methods</a> to perform routing side-effects so you would
+test them like any other API.</p>
+<p>For example, to verify that the following route will perform a redirect in case
+the user is or is not authorized:</p>
+<pre class="language-javascript"><code><span class="token comment" spellcheck="true">// file: LandingRoute.js</span>
+<span class="token keyword" >import</span> <span class="token punctuation" >{</span> Route <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'page-fu'</span><span class="token punctuation" >;</span>
+
+<span class="token keyword" >export</span> <span class="token keyword" >default</span> <span class="token function" >Route</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
+  <span class="token function" >enter</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token keyword" >if</span> <span class="token punctuation" >(</span><span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >isAuthorized</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+      <span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >redirectTo</span><span class="token punctuation" >(</span><span class="token string" >'/dashboard'</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+    <span class="token punctuation" >}</span>
+    <span class="token keyword" >else</span> <span class="token punctuation" >{</span>
+      <span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >redirectTo</span><span class="token punctuation" >(</span><span class="token string" >'/login'</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+    <span class="token punctuation" >}</span>
+  <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+
+  <span class="token function" >isAuthorized</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token comment" spellcheck="true">// ...</span>
+  <span class="token punctuation" >}</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >)</span>
+
+<span class="token comment" spellcheck="true">// file: LandingRoute.test.js</span>
+<span class="token keyword" >import</span> subject <span class="token keyword" >from</span> <span class="token string" >'./LandingRoute'</span><span class="token punctuation" >;</span>
+
+<span class="token function" >describe</span><span class="token punctuation" >(</span><span class="token string" >'LandingRoute'</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+  <span class="token function" >it</span><span class="token punctuation" >(</span><span class="token string" >'redirects to "/dashboard" if user is logged in'</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    sinon<span class="token punctuation" >.</span><span class="token function" >stub</span><span class="token punctuation" >(</span>subject<span class="token punctuation" >,</span> <span class="token string" >'isAuthorized'</span><span class="token punctuation" >,</span> <span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token operator" >=</span><span class="token operator" >></span> <span class="token boolean" >true</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+    sinon<span class="token punctuation" >.</span><span class="token function" >stub</span><span class="token punctuation" >(</span>subject<span class="token punctuation" >,</span> <span class="token string" >'redirectTo'</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+    subject<span class="token punctuation" >.</span><span class="token function" >enter</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+    assert<span class="token punctuation" >.</span><span class="token function" >calledWith</span><span class="token punctuation" >(</span>subject<span class="token punctuation" >.</span>redirectTo<span class="token punctuation" >,</span> <span class="token string" >'/dashboard'</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+  <span class="token punctuation" >}</span><span class="token punctuation" >)</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >)</span></code></pre>
+<h3 class="anchorable-heading">
+  <a name="testing" class="anchorable-heading__anchor"></a>
+  <a href="#testing" class="anchorable-heading__link icon icon-link"></a><span class="anchorable-heading__text">Testing</span>
+</h3></div></div></div></div><div class="footer" data-reactid="79"><div class="markdown-text " data-reactid="80">Crafted with &#9829; using <a href="https://github.com/megadoc">megadoc</a>.</div></div></div></div></div></div></div></div></div>
+
+    <!-- Prepare UMD container -->
+    <script>
+      window.exports = {};
+    </script>
+
+    <!-- Megadoc core scripts -->
+    
+    <script type="text/javascript" src="megadoc-assets/megadoc__config.js"></script>
+    
+    <script type="text/javascript" src="megadoc-assets/megadoc__vendor.js"></script>
+    
+    <script type="text/javascript" src="megadoc-assets/megadoc.js"></script>
+    
+
+    <!-- Re-export common modules into MEGADOC_PUBLIC_MODULES -->
+    <script type="text/javascript" src="megadoc-assets/megadoc__common.js"></script>
+    <script>
+      window.MEGADOC_PUBLIC_MODULES = exports['megadoc__common'];
+    </script>
+
+    <!-- Collect plugin script exports -->
+    
+    <script type="text/javascript" src="megadoc-assets/megadoc-plugin-js.js"></script>
+    
+    <script type="text/javascript" src="megadoc-assets/megadoc-plugin-markdown.js"></script>
+    
+    <script type="text/javascript" src="megadoc-assets/megadoc-theme-minimalist.js"></script>
+    
+    <script type="text/javascript" src="megadoc-assets/megadoc-plugin-inline.js"></script>
+    
+
+    <!-- Load the plugins and start the client -->
+    <script>
+      window.MEGADOC_PLUGINS = Object.keys(exports)
+        .filter(function(key) {
+          var obj = exports[key];
+
+          return (
+            obj &&
+            typeof obj === 'object' &&
+            typeof obj.name === 'string' &&
+            /megadoc-(theme|plugin)-/.test(obj.name)
+          );
+        })
+        .map(function(key) {
+          return exports[key];
+        })
+      ;
+
+      exports['megadoc'].startApp(Object.assign({}, exports['megadoc__config'], {
+        startingDocumentUID: "articles/testing",
+        startingDocumentHref: "/testing.html",
+        plugins: window.MEGADOC_PLUGINS,
+      }));
+    </script>
+  </body>
+</html>

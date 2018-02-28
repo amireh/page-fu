@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Create a &quot;route handler&quot; equipped with all the capabilities provided by page-fu:" />
+
+    <title>Route</title>
+
+    
+    <link rel="stylesheet" href="../megadoc-assets/megadoc__styles.css" />
+    
+
+    
+  </head>
+
+  <body class="body--themed">
+    <div id="__app__"><div data-reactroot="" data-reactid="1" data-react-checksum="-1610999898"><div data-reactid="2"></div><!-- react-empty: 3 --><div class="root root--with-multi-page-layout root--with-fixed-sidebar root--with-two-column-layout root--without-banner" data-reactid="4"><div class="root__screen" data-reactid="5"><div class="two-column-layout" data-reactid="6"><div class="two-column-layout__left" style="width:240px;" data-reactid="7"><div class="resizable-panel" data-reactid="8"><div class="resizable-panel__content" data-reactid="9"><div data-reactid="10"><div data-reactid="11"><nav data-reactid="12"><div data-reactid="13"><div data-reactid="14"><a href="../index.html" class="class-browser__entry-link" data-reactid="15"><!-- react-text: 16 -->page-fu
+<!-- /react-text --></a></div><div data-reactid="17"><a href="../examples.html" class="class-browser__entry-link" data-reactid="18"><!-- react-text: 19 -->Examples
+<!-- /react-text --></a></div><div data-reactid="20"><a href="../testing.html" class="class-browser__entry-link" data-reactid="21"><!-- react-text: 22 -->Testing
+<!-- /react-text --></a></div><div data-reactid="23"><a href="../changelog.html" class="class-browser__entry-link" data-reactid="24"><!-- react-text: 25 -->CHANGELOG
+<!-- /react-text --></a></div></div></nav></div><div data-reactid="26"><h3 class="layout__sidebar-header" data-reactid="27">API</h3></div><div data-reactid="28"><nav class="class-browser__listing" data-reactid="29"><div class="class-browser__category" data-reactid="30"><div class="class-browser__entry class-browser__entry--active" data-reactid="31"><a href="" class="class-browser__entry-link active" data-reactid="32"><!-- react-text: 33 -->Route<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="34"><a href="Router.html" class="class-browser__entry-link" data-reactid="35"><!-- react-text: 36 -->Router<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="37"><a href="page-fu.html" class="class-browser__entry-link" data-reactid="38"><!-- react-text: 39 -->page-fu<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="40"><a href="withAtomicity.html" class="class-browser__entry-link" data-reactid="41"><!-- react-text: 42 -->withAtomicity<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="43"><a href="withFirstClassMethods.html" class="class-browser__entry-link" data-reactid="44"><!-- react-text: 45 -->withFirstClassMethods<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="46"><a href="withHooks.html" class="class-browser__entry-link" data-reactid="47"><!-- react-text: 48 -->withHooks<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="49"><a href="withProps.html" class="class-browser__entry-link" data-reactid="50"><!-- react-text: 51 -->withProps<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="52"><a href="withRoutingAPIs.html" class="class-browser__entry-link" data-reactid="53"><!-- react-text: 54 -->withRoutingAPIs<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="55"><a href="withState.html" class="class-browser__entry-link" data-reactid="56"><!-- react-text: 57 -->withState<!-- /react-text --></a></div></div></nav></div><div data-reactid="58"><button title="Search (Ctrl+K or CMD+K)" type="button" class="btn btn-default sidebar-search-button" data-reactid="59">Search</button></div></div></div><div class="ui-resizable-handle ui-resizable-e" data-reactid="60"></div></div></div><div class="two-column-layout__right" style="margin-left:240px;" data-reactid="61"><div data-reactid="62"><div class="doc-content" data-reactid="63"><div data-reactid="64"><div class="class-view" data-reactid="65"><div data-reactid="66"><h1 class="class-view__header anchorable-heading" data-reactid="67"><span class="anchorable-heading__text" data-reactid="68">Route</span><!-- react-text: 69 --> <!-- /react-text --><!-- react-text: 70 --> <!-- /react-text --><span class="class-view__header-type" data-reactid="71"><span data-reactid="72"><span data-reactid="73">Function</span></span></span></h1><div class="highlighted-text " data-reactid="74"><p>Create a &quot;route handler&quot; equipped with all the capabilities provided by
+page-fu:</p>
+<ul>
+<li>state management via <a href="withState.html" title="Decorate your route with the ability to transition between (internal) states. That state will be purged upon entering and exiting the route so you do not need to manage it." class="mega-link--internal">withState</a></li>
+<li>routing props via <a href="withProps.html" title="Inject named parameters and query parameters as &quot;[[props | withProps@props]]&quot; into your route." class="mega-link--internal">withProps</a></li>
+<li><a href="withAtomicity.html" title="Ensure that your route&#39;s exit hook is invoked only when its enter hook was also invoked during the active dispatch. Hence, &quot;atomic&quot;." class="mega-link--internal">atomicity</a></li>
+<li><a href="withFirstClassMethods.html" title="Create an object whose functions are permanently bound to it (i.e. &quot;first- class&quot; functions)." class="mega-link--internal">first-class functions</a> for convenience</li>
+<li>direct access to <a href="withRoutingAPIs.html" title="A cute and simple decorator that allows direct access to the [[router | Router]]&#39;s primary routines." class="mega-link--internal">routing APIs</a> for convenience</li>
+<li>good manners via <a href="withHooks.html" title="Produce a route object that specifies both an enter and an exit hook given either a function to be used as the sole &quot;enter&quot; hook, or an object that defines one or both hooks." class="mega-link--internal">withHooks</a></li>
+</ul>
+<p><code>Route</code> embraces the simplicity of page.js and its middleware architecture in
+that it&#39;s just a pipeline of functions that your route handler specification
+goes through and then comes out of augmented with super powers.</p>
+<p>Under the hoods, this is the definition of the <code>Route</code> function (at the time
+of writing, anyway):</p>
+<pre class="language-javascript"><code><span class="token function" >flow</span><span class="token punctuation" >(</span><span class="token punctuation" >[</span>
+  withHooks<span class="token punctuation" >,</span>
+  withState<span class="token punctuation" >,</span>
+  withProps<span class="token punctuation" >,</span>
+  withRoutingAPIs<span class="token punctuation" >,</span>
+  withAtomicity<span class="token punctuation" >,</span>
+  withFirstClassMethods
+<span class="token punctuation" >]</span><span class="token punctuation" >)</span></code></pre><p>If you don&#39;t care about one or another of the decorators provided by default,
+you are free to create your own generator by picking the decorators that you
+want and <a href="https://lodash.com/docs/4.17.4#flow" target="_blank">composing</a> them.</p>
+<p><strong>Basic usage example</strong></p>
+<pre class="language-javascript"><code><span class="token keyword" >import</span> <span class="token punctuation" >{</span> Route <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'page-fu'</span><span class="token punctuation" >;</span>
+<span class="token keyword" >import</span> page <span class="token keyword" >from</span> <span class="token string" >'page'</span><span class="token punctuation" >;</span>
+
+<span class="token keyword" >const</span> UserRoute <span class="token operator" >=</span> <span class="token function" >Route</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span>
+
+<span class="token function" >page</span><span class="token punctuation" >(</span><span class="token string" >'/users/:userId'</span><span class="token punctuation" >,</span> UserRoute<span class="token punctuation" >.</span>enter<span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+page<span class="token punctuation" >.</span><span class="token function" >exit</span><span class="token punctuation" >(</span><span class="token string" >'/users/:userId'</span><span class="token punctuation" >,</span> UserRoute<span class="token punctuation" >.</span>exit<span class="token punctuation" >)</span><span class="token punctuation" >;</span></code></pre><p>If this example looked silly to you (it probably did!) then you may want to
+take a look at a <a href="../examples.html" title="This is a more complete example that shows three of the decorators at work together: [[state | withState]], [[props | withProps]], and the [[atomicity guard | withAtomicity]]." class="mega-link--internal">more complete example</a>.</p>
+</div></div><div data-reactid="75"><div data-reactid="76"><div data-reactid="77"><h2 class="doc-group__header" data-reactid="78">Signature</h2><div class="doc-entity collapsible--expanded" data-reactid="79"><h4 class="doc-entity__header collapsible-header" title="Route" data-reactid="80"><span class="anchorable-heading__text" data-reactid="81"><span class="doc-entity__name-fragment" data-reactid="82">Route</span><span class="doc-entity__function-signature" data-reactid="83">(<em>spec</em>: Object)</span><span class="doc-entity__method-params" data-reactid="84"><!-- react-text: 85 --> -&gt; <!-- /react-text --><span class="js-type-names" data-reactid="86"><a class="mega-link--internal" href="/js/Route.html" title="Create a &quot;route handler&quot; equipped with all the capabilities provided by page-fu:">Route</a></span></span></span></h4><div class="doc-entity__description" data-reactid="87"></div><div class="doc-entity__tags" data-reactid="88"><div class="tag-group tag-group--tabular collapsible tag-group--single-child" data-reactid="89"><h4 class="tag-group__header collapsible-header" data-reactid="90"><i class="icon collapser collapsible__icon icon-arrow-down" data-reactid="91"></i><!-- react-text: 92 -->Parameters (<!-- /react-text --><!-- react-text: 93 -->1<!-- /react-text --><!-- react-text: 94 -->)<!-- /react-text --></h4><table data-reactid="95"><tbody data-reactid="96"><tr class="param-tag" data-reactid="97"><td class="tag-group__primary-column" data-reactid="98"><header class="param-tag__header" data-reactid="99"><code class="param-tag__name" data-reactid="100">spec</code></header></td><td data-reactid="101"><code class="param-tag__types" data-reactid="102"><span class="js-type-names" data-reactid="103">Object</span></code><div class="highlighted-text param-tag__description" data-reactid="104"><p>Your route definition.</p>
+</div><!-- react-empty: 105 --></td></tr></tbody></table></div><div class="tag-group tag-group--tabular collapsible tag-group--single-child" data-reactid="106"><h4 class="tag-group__header collapsible-header" data-reactid="107"><i class="icon collapser collapsible__icon icon-arrow-down" data-reactid="108"></i><!-- react-text: 109 -->Return Value<!-- /react-text --></h4><table data-reactid="110"><tbody data-reactid="111"><tr class="param-tag" data-reactid="112"><td class="tag-group__primary-column" data-reactid="113"></td><td data-reactid="114"><code class="param-tag__types" data-reactid="115"><span class="js-type-names" data-reactid="116"><a class="mega-link--internal" href="/js/Route.html" title="Create a &quot;route handler&quot; equipped with all the capabilities provided by page-fu:">Route</a></span></code><div class="highlighted-text param-tag__description" data-reactid="117"><p>The route handler with the APIs you defined in the spec as well as
+all the APIs and properties exposed by the decorators.</p>
+</div><!-- react-empty: 118 --></td></tr></tbody></table></div><!-- react-empty: 119 --><!-- react-empty: 120 --></div></div></div><div data-reactid="121"></div></div></div></div></div></div><div class="footer" data-reactid="122"><div class="markdown-text " data-reactid="123">Crafted with &#9829; using <a href="https://github.com/megadoc">megadoc</a>.</div></div></div></div></div></div></div></div></div>
+
+    <!-- Prepare UMD container -->
+    <script>
+      window.exports = {};
+    </script>
+
+    <!-- Megadoc core scripts -->
+    
+    <script type="text/javascript" src="../megadoc-assets/megadoc__config.js"></script>
+    
+    <script type="text/javascript" src="../megadoc-assets/megadoc__vendor.js"></script>
+    
+    <script type="text/javascript" src="../megadoc-assets/megadoc.js"></script>
+    
+
+    <!-- Re-export common modules into MEGADOC_PUBLIC_MODULES -->
+    <script type="text/javascript" src="../megadoc-assets/megadoc__common.js"></script>
+    <script>
+      window.MEGADOC_PUBLIC_MODULES = exports['megadoc__common'];
+    </script>
+
+    <!-- Collect plugin script exports -->
+    
+    <script type="text/javascript" src="../megadoc-assets/megadoc-plugin-js.js"></script>
+    
+    <script type="text/javascript" src="../megadoc-assets/megadoc-plugin-markdown.js"></script>
+    
+    <script type="text/javascript" src="../megadoc-assets/megadoc-theme-minimalist.js"></script>
+    
+    <script type="text/javascript" src="../megadoc-assets/megadoc-plugin-inline.js"></script>
+    
+
+    <!-- Load the plugins and start the client -->
+    <script>
+      window.MEGADOC_PLUGINS = Object.keys(exports)
+        .filter(function(key) {
+          var obj = exports[key];
+
+          return (
+            obj &&
+            typeof obj === 'object' &&
+            typeof obj.name === 'string' &&
+            /megadoc-(theme|plugin)-/.test(obj.name)
+          );
+        })
+        .map(function(key) {
+          return exports[key];
+        })
+      ;
+
+      exports['megadoc'].startApp(Object.assign({}, exports['megadoc__config'], {
+        startingDocumentUID: "js/Route",
+        startingDocumentHref: "/js/Route.html",
+        plugins: window.MEGADOC_PLUGINS,
+      }));
+    </script>
+  </body>
+</html>

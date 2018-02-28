@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  outputDir: path.resolve(__dirname, 'doc/compiled'),
+  outputDir: path.resolve(__dirname, 'docs'),
   assetRoot: path.resolve(__dirname),
   strict: true,
   serializer: [ 'megadoc-html-serializer', {

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="A cute and simple decorator that allows direct access to the [[router | Router]]&#39;s primary routines." />
+
+    <title>withRoutingAPIs</title>
+
+    
+    <link rel="stylesheet" href="../megadoc-assets/megadoc__styles.css" />
+    
+
+    
+  </head>
+
+  <body class="body--themed">
+    <div id="__app__"><div data-reactroot="" data-reactid="1" data-react-checksum="827439484"><div data-reactid="2"></div><!-- react-empty: 3 --><div class="root root--with-multi-page-layout root--with-fixed-sidebar root--with-two-column-layout root--without-banner" data-reactid="4"><div class="root__screen" data-reactid="5"><div class="two-column-layout" data-reactid="6"><div class="two-column-layout__left" style="width:240px;" data-reactid="7"><div class="resizable-panel" data-reactid="8"><div class="resizable-panel__content" data-reactid="9"><div data-reactid="10"><div data-reactid="11"><nav data-reactid="12"><div data-reactid="13"><div data-reactid="14"><a href="../index.html" class="class-browser__entry-link" data-reactid="15"><!-- react-text: 16 -->page-fu
+<!-- /react-text --></a></div><div data-reactid="17"><a href="../examples.html" class="class-browser__entry-link" data-reactid="18"><!-- react-text: 19 -->Examples
+<!-- /react-text --></a></div><div data-reactid="20"><a href="../testing.html" class="class-browser__entry-link" data-reactid="21"><!-- react-text: 22 -->Testing
+<!-- /react-text --></a></div><div data-reactid="23"><a href="../changelog.html" class="class-browser__entry-link" data-reactid="24"><!-- react-text: 25 -->CHANGELOG
+<!-- /react-text --></a></div></div></nav></div><div data-reactid="26"><h3 class="layout__sidebar-header" data-reactid="27">API</h3></div><div data-reactid="28"><nav class="class-browser__listing" data-reactid="29"><div class="class-browser__category" data-reactid="30"><div class="class-browser__entry" data-reactid="31"><a href="Route.html" class="class-browser__entry-link" data-reactid="32"><!-- react-text: 33 -->Route<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="34"><a href="Router.html" class="class-browser__entry-link" data-reactid="35"><!-- react-text: 36 -->Router<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="37"><a href="page-fu.html" class="class-browser__entry-link" data-reactid="38"><!-- react-text: 39 -->page-fu<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="40"><a href="withAtomicity.html" class="class-browser__entry-link" data-reactid="41"><!-- react-text: 42 -->withAtomicity<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="43"><a href="withFirstClassMethods.html" class="class-browser__entry-link" data-reactid="44"><!-- react-text: 45 -->withFirstClassMethods<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="46"><a href="withHooks.html" class="class-browser__entry-link" data-reactid="47"><!-- react-text: 48 -->withHooks<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="49"><a href="withProps.html" class="class-browser__entry-link" data-reactid="50"><!-- react-text: 51 -->withProps<!-- /react-text --></a></div><div class="class-browser__entry class-browser__entry--active" data-reactid="52"><a href="" class="class-browser__entry-link active" data-reactid="53"><!-- react-text: 54 -->withRoutingAPIs<!-- /react-text --></a><ul class="class-browser__methods" data-reactid="55"><li class="class-browser__methods-entity" data-reactid="56"><a title="withRoutingAPIs#redirectTo" href="##redirectTo" class="" data-reactid="57">#redirectTo</a></li><li class="class-browser__methods-entity" data-reactid="58"><a title="withRoutingAPIs#replaceQuery" href="##replaceQuery" class="" data-reactid="59">#replaceQuery</a></li><li class="class-browser__methods-entity" data-reactid="60"><a title="withRoutingAPIs#transitionTo" href="##transitionTo" class="" data-reactid="61">#transitionTo</a></li><li class="class-browser__methods-entity" data-reactid="62"><a title="withRoutingAPIs#updateQuery" href="##updateQuery" class="" data-reactid="63">#updateQuery</a></li></ul></div><div class="class-browser__entry" data-reactid="64"><a href="withState.html" class="class-browser__entry-link" data-reactid="65"><!-- react-text: 66 -->withState<!-- /react-text --></a></div></div></nav></div><div data-reactid="67"><button title="Search (Ctrl+K or CMD+K)" type="button" class="btn btn-default sidebar-search-button" data-reactid="68">Search</button></div></div></div><div class="ui-resizable-handle ui-resizable-e" data-reactid="69"></div></div></div><div class="two-column-layout__right" style="margin-left:240px;" data-reactid="70"><div data-reactid="71"><div class="doc-content" data-reactid="72"><div data-reactid="73"><div class="class-view" data-reactid="74"><div data-reactid="75"><h1 class="class-view__header anchorable-heading" data-reactid="76"><span class="anchorable-heading__text" data-reactid="77">withRoutingAPIs</span><!-- react-text: 78 --> <!-- /react-text --><!-- react-text: 79 --> <!-- /react-text --><span class="class-view__header-type" data-reactid="80"><span data-reactid="81"><span data-reactid="82">Factory</span></span></span></h1><div class="highlighted-text " data-reactid="83"><p>A cute and simple decorator that allows direct access to the <a href="/js/Router.html" title="This module exposes APIs to perform routing side-effects via page.js." class="mega-link--internal">router</a>&#39;s primary routines.</p>
+<p>For example:</p>
+<pre class="language-javascript"><code><span class="token keyword" >import</span> <span class="token punctuation" >{</span> withRoutingAPIs <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'page-fu'</span><span class="token punctuation" >;</span>
+
+<span class="token keyword" >export</span> <span class="token keyword" >default</span> <span class="token function" >withRoutingAPIs</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
+  <span class="token function" >enter</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >transitionTo</span><span class="token punctuation" >(</span><span class="token string" >'/foo'</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span> <span class="token comment" spellcheck="true">// => Router.transitionTo('/foo');</span>
+  <span class="token punctuation" >}</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >)</span></code></pre></div></div><div data-reactid="84"><div data-reactid="85"><div data-reactid="86"><h2 class="doc-group__header" data-reactid="87">Instance Constructor</h2><div class="doc-entity collapsible--expanded" data-reactid="88"><h4 class="doc-entity__header collapsible-header" title="withRoutingAPIs" data-reactid="89"><span class="anchorable-heading__text" data-reactid="90"><span class="doc-entity__name-fragment" data-reactid="91">withRoutingAPIs</span><span class="doc-entity__function-signature" data-reactid="92">(<em>route</em>: Object)</span><span class="doc-entity__method-params" data-reactid="93"><!-- react-text: 94 --> -&gt; <!-- /react-text --><span class="js-type-names" data-reactid="95">Object</span></span></span></h4><div class="doc-entity__description" data-reactid="96"></div><div class="doc-entity__tags" data-reactid="97"><div class="tag-group tag-group--tabular collapsible tag-group--single-child" data-reactid="98"><h4 class="tag-group__header collapsible-header" data-reactid="99"><i class="icon collapser collapsible__icon icon-arrow-down" data-reactid="100"></i><!-- react-text: 101 -->Parameters (<!-- /react-text --><!-- react-text: 102 -->1<!-- /react-text --><!-- react-text: 103 -->)<!-- /react-text --></h4><table data-reactid="104"><tbody data-reactid="105"><tr class="param-tag" data-reactid="106"><td class="tag-group__primary-column" data-reactid="107"><header class="param-tag__header" data-reactid="108"><code class="param-tag__name" data-reactid="109">route</code></header></td><td data-reactid="110"><code class="param-tag__types" data-reactid="111"><span class="js-type-names" data-reactid="112">Object</span></code><!-- react-empty: 113 --></td></tr></tbody></table></div><div class="tag-group tag-group--tabular collapsible tag-group--single-child" data-reactid="114"><h4 class="tag-group__header collapsible-header" data-reactid="115"><i class="icon collapser collapsible__icon icon-arrow-down" data-reactid="116"></i><!-- react-text: 117 -->Return Value<!-- /react-text --></h4><table data-reactid="118"><tbody data-reactid="119"><tr class="param-tag" data-reactid="120"><td class="tag-group__primary-column" data-reactid="121"><header class="param-tag__header" data-reactid="122"><code class="param-tag__name" data-reactid="123">route</code></header></td><td data-reactid="124"><code class="param-tag__types" data-reactid="125"><span class="js-type-names" data-reactid="126">Object</span></code><!-- react-empty: 127 --></td></tr></tbody></table></div><!-- react-empty: 128 --><!-- react-empty: 129 --></div></div></div><div data-reactid="130"></div><div class="doc-group" data-reactid="131"><h2 class="doc-group__header" data-reactid="132">Instance Methods</h2><ul class="class-view__method-list" data-reactid="133"><div class="doc-entity collapsible collapsible--expanded" data-reactid="134"><h4 class="doc-entity__header collapsible-header anchorable-heading" title="redirectTo" data-reactid="135"><i class="icon collapser collapsible__icon icon-arrow-down" data-reactid="136"></i><a name="#redirectTo" class="anchorable-heading__anchor" data-reactid="137"></a><a class="anchorable-heading__link icon icon-link" href="##redirectTo" data-reactid="138"></a><span class="anchorable-heading__text" data-reactid="139"><span class="doc-entity__name-fragment" data-reactid="140">redirectTo</span><span class="doc-entity__function-signature" data-reactid="141">()</span></span></h4><div class="doc-entity__description" data-reactid="142"><div class="highlighted-text " data-reactid="143"><p>Forwards to <a href="Router.html#.redirectTo" title="Transition to a different page and replace the current history entry." class="mega-link--internal">Router.redirectTo</a></p>
+</div></div><div class="doc-entity__tags" data-reactid="144"><!-- react-empty: 145 --><!-- react-empty: 146 --><!-- react-empty: 147 --><!-- react-empty: 148 --><!-- react-empty: 149 --><!-- react-empty: 150 --></div></div><div class="doc-entity collapsible collapsible--expanded" data-reactid="151"><h4 class="doc-entity__header collapsible-header anchorable-heading" title="replaceQuery" data-reactid="152"><i class="icon collapser collapsible__icon icon-arrow-down" data-reactid="153"></i><a name="#replaceQuery" class="anchorable-heading__anchor" data-reactid="154"></a><a class="anchorable-heading__link icon icon-link" href="##replaceQuery" data-reactid="155"></a><span class="anchorable-heading__text" data-reactid="156"><span class="doc-entity__name-fragment" data-reactid="157">replaceQuery</span><span class="doc-entity__function-signature" data-reactid="158">()</span></span></h4><div class="doc-entity__description" data-reactid="159"><div class="highlighted-text " data-reactid="160"><p>Forwards to <a href="Router.html#.replaceQuery" title="Replace the queryString fully with the next representation. null values will be removed from the resulting queryString." class="mega-link--internal">Router.replaceQuery</a></p>
+</div></div><div class="doc-entity__tags" data-reactid="161"><!-- react-empty: 162 --><!-- react-empty: 163 --><!-- react-empty: 164 --><!-- react-empty: 165 --><!-- react-empty: 166 --><!-- react-empty: 167 --></div></div><div class="doc-entity collapsible collapsible--expanded" data-reactid="168"><h4 class="doc-entity__header collapsible-header anchorable-heading" title="transitionTo" data-reactid="169"><i class="icon collapser collapsible__icon icon-arrow-down" data-reactid="170"></i><a name="#transitionTo" class="anchorable-heading__anchor" data-reactid="171"></a><a class="anchorable-heading__link icon icon-link" href="##transitionTo" data-reactid="172"></a><span class="anchorable-heading__text" data-reactid="173"><span class="doc-entity__name-fragment" data-reactid="174">transitionTo</span><span class="doc-entity__function-signature" data-reactid="175">()</span></span></h4><div class="doc-entity__description" data-reactid="176"><div class="highlighted-text " data-reactid="177"><p>Forwards to <a href="Router.html#.transitionTo" title="Transition to a different page." class="mega-link--internal">Router.transitionTo</a></p>
+</div></div><div class="doc-entity__tags" data-reactid="178"><!-- react-empty: 179 --><!-- react-empty: 180 --><!-- react-empty: 181 --><!-- react-empty: 182 --><!-- react-empty: 183 --><!-- react-empty: 184 --></div></div><div class="doc-entity collapsible collapsible--expanded" data-reactid="185"><h4 class="doc-entity__header collapsible-header anchorable-heading" title="updateQuery" data-reactid="186"><i class="icon collapser collapsible__icon icon-arrow-down" data-reactid="187"></i><a name="#updateQuery" class="anchorable-heading__anchor" data-reactid="188"></a><a class="anchorable-heading__link icon icon-link" href="##updateQuery" data-reactid="189"></a><span class="anchorable-heading__text" data-reactid="190"><span class="doc-entity__name-fragment" data-reactid="191">updateQuery</span><span class="doc-entity__function-signature" data-reactid="192">()</span></span></h4><div class="doc-entity__description" data-reactid="193"><div class="highlighted-text " data-reactid="194"><p>Forwards to <a href="Router.html#.updateQuery" title="Partially update the queryString according to a set of rules:" class="mega-link--internal">Router.updateQuery</a></p>
+</div></div><div class="doc-entity__tags" data-reactid="195"><!-- react-empty: 196 --><!-- react-empty: 197 --><!-- react-empty: 198 --><!-- react-empty: 199 --><!-- react-empty: 200 --><!-- react-empty: 201 --></div></div></ul></div></div></div></div></div></div><div class="footer" data-reactid="202"><div class="markdown-text " data-reactid="203">Crafted with &#9829; using <a href="https://github.com/megadoc">megadoc</a>.</div></div></div></div></div></div></div></div></div>
+
+    <!-- Prepare UMD container -->
+    <script>
+      window.exports = {};
+    </script>
+
+    <!-- Megadoc core scripts -->
+    
+    <script type="text/javascript" src="../megadoc-assets/megadoc__config.js"></script>
+    
+    <script type="text/javascript" src="../megadoc-assets/megadoc__vendor.js"></script>
+    
+    <script type="text/javascript" src="../megadoc-assets/megadoc.js"></script>
+    
+
+    <!-- Re-export common modules into MEGADOC_PUBLIC_MODULES -->
+    <script type="text/javascript" src="../megadoc-assets/megadoc__common.js"></script>
+    <script>
+      window.MEGADOC_PUBLIC_MODULES = exports['megadoc__common'];
+    </script>
+
+    <!-- Collect plugin script exports -->
+    
+    <script type="text/javascript" src="../megadoc-assets/megadoc-plugin-js.js"></script>
+    
+    <script type="text/javascript" src="../megadoc-assets/megadoc-plugin-markdown.js"></script>
+    
+    <script type="text/javascript" src="../megadoc-assets/megadoc-theme-minimalist.js"></script>
+    
+    <script type="text/javascript" src="../megadoc-assets/megadoc-plugin-inline.js"></script>
+    
+
+    <!-- Load the plugins and start the client -->
+    <script>
+      window.MEGADOC_PLUGINS = Object.keys(exports)
+        .filter(function(key) {
+          var obj = exports[key];
+
+          return (
+            obj &&
+            typeof obj === 'object' &&
+            typeof obj.name === 'string' &&
+            /megadoc-(theme|plugin)-/.test(obj.name)
+          );
+        })
+        .map(function(key) {
+          return exports[key];
+        })
+      ;
+
+      exports['megadoc'].startApp(Object.assign({}, exports['megadoc__config'], {
+        startingDocumentUID: "js/withRoutingAPIs",
+        startingDocumentHref: "/js/withRoutingAPIs.html",
+        plugins: window.MEGADOC_PLUGINS,
+      }));
+    </script>
+  </body>
+</html>
