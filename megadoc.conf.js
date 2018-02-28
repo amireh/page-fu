@@ -3,17 +3,17 @@ const path = require('path');
 module.exports = {
   outputDir: path.resolve(__dirname, 'doc/compiled'),
   assetRoot: path.resolve(__dirname),
-  strict: false,
+  strict: true,
   serializer: [ 'megadoc-html-serializer', {
     theme: [ 'megadoc-theme-minimalist', {} ],
     title: 'page-fu',
     resizableSidebar: false,
+    fixedSidebar: true,
     favicon: null,
     metaDescription: 'page.js routing sugars',
     footer: 'Crafted with &#9829; using <a href="https://github.com/megadoc">megadoc</a>.',
     tooltipPreviews: false,
     rewrite: {
-      'articles': '/',
       '/readme.html': '/index.html',
     },
     runtimeOutputPath: 'megadoc-assets',
@@ -55,7 +55,7 @@ module.exports = {
       ],
       processor: [ 'megadoc-plugin-markdown', {
         id: 'articles',
-        baseURL: '/articles',
+        baseURL: '/',
         strict: false,
         fullFolderTitles: false,
         discardIdPrefix: 'doc-',

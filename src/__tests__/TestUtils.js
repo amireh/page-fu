@@ -2,6 +2,7 @@ import sinon from 'sinon';
 import { assert } from 'chai';
 import page from 'page';
 import FakeDOM from './FakeDOM';
+export { default as assertChange } from 'chai-assert-change'
 
 sinon.assert.expose(assert, { prefix: "" });
 
