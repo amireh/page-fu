@@ -8,6 +8,7 @@ module.exports = {
     theme: [ 'megadoc-theme-minimalist', {} ],
     title: 'page-fu',
     resizableSidebar: false,
+    sidebarWidth: 340,
     fixedSidebar: true,
     favicon: null,
     metaDescription: 'page.js routing sugars',
