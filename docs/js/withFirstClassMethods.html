@@ -15,41 +15,7 @@
   </head>
 
   <body class="body--themed">
-    <div id="__app__"><div data-reactroot="" data-reactid="1" data-react-checksum="-480239830"><div data-reactid="2"></div><!-- react-empty: 3 --><div class="root root--with-multi-page-layout root--with-fixed-sidebar root--with-two-column-layout root--without-banner" data-reactid="4"><div class="root__screen" data-reactid="5"><div class="two-column-layout" data-reactid="6"><div class="two-column-layout__left" style="width:240px;" data-reactid="7"><div class="resizable-panel" data-reactid="8"><div class="resizable-panel__content" data-reactid="9"><div data-reactid="10"><div data-reactid="11"><nav data-reactid="12"><div data-reactid="13"><div data-reactid="14"><a href="../index.html" class="class-browser__entry-link" data-reactid="15"><!-- react-text: 16 -->page-fu
-<!-- /react-text --></a></div><div data-reactid="17"><a href="../examples.html" class="class-browser__entry-link" data-reactid="18"><!-- react-text: 19 -->Examples
-<!-- /react-text --></a></div><div data-reactid="20"><a href="../testing.html" class="class-browser__entry-link" data-reactid="21"><!-- react-text: 22 -->Testing
-<!-- /react-text --></a></div><div data-reactid="23"><a href="../changelog.html" class="class-browser__entry-link" data-reactid="24"><!-- react-text: 25 -->CHANGELOG
-<!-- /react-text --></a></div></div></nav></div><div data-reactid="26"><h3 class="layout__sidebar-header" data-reactid="27">API</h3></div><div data-reactid="28"><nav class="class-browser__listing" data-reactid="29"><div class="class-browser__category" data-reactid="30"><div class="class-browser__entry" data-reactid="31"><a href="Route.html" class="class-browser__entry-link" data-reactid="32"><!-- react-text: 33 -->Route<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="34"><a href="Router.html" class="class-browser__entry-link" data-reactid="35"><!-- react-text: 36 -->Router<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="37"><a href="page-fu.html" class="class-browser__entry-link" data-reactid="38"><!-- react-text: 39 -->page-fu<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="40"><a href="withAtomicity.html" class="class-browser__entry-link" data-reactid="41"><!-- react-text: 42 -->withAtomicity<!-- /react-text --></a></div><div class="class-browser__entry class-browser__entry--active" data-reactid="43"><a href="" class="class-browser__entry-link active" data-reactid="44"><!-- react-text: 45 -->withFirstClassMethods<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="46"><a href="withHooks.html" class="class-browser__entry-link" data-reactid="47"><!-- react-text: 48 -->withHooks<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="49"><a href="withProps.html" class="class-browser__entry-link" data-reactid="50"><!-- react-text: 51 -->withProps<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="52"><a href="withRoutingAPIs.html" class="class-browser__entry-link" data-reactid="53"><!-- react-text: 54 -->withRoutingAPIs<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="55"><a href="withState.html" class="class-browser__entry-link" data-reactid="56"><!-- react-text: 57 -->withState<!-- /react-text --></a></div></div></nav></div><div data-reactid="58"><button title="Search (Ctrl+K or CMD+K)" type="button" class="btn btn-default sidebar-search-button" data-reactid="59">Search</button></div></div></div><div class="ui-resizable-handle ui-resizable-e" data-reactid="60"></div></div></div><div class="two-column-layout__right" style="margin-left:240px;" data-reactid="61"><div data-reactid="62"><div class="doc-content" data-reactid="63"><div data-reactid="64"><div class="class-view" data-reactid="65"><div data-reactid="66"><h1 class="class-view__header anchorable-heading" data-reactid="67"><span class="anchorable-heading__text" data-reactid="68">withFirstClassMethods</span><!-- react-text: 69 --> <!-- /react-text --><!-- react-text: 70 --> <!-- /react-text --><span class="class-view__header-type" data-reactid="71"><span data-reactid="72"><span data-reactid="73">Function</span></span></span></h1><div class="highlighted-text " data-reactid="74"><p>Create an object whose functions are permanently bound to it (i.e. &quot;first-
-class&quot; functions).</p>
-<p>After applying this decorator, you no longer need to call <a href="https://deve
-loper.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bi
-nd" target="_blank">bind</a> when you&#39;re passing around references to your route handler&#39;s functions.</p>
-<p>Example:</p>
-<pre class="language-javascript"><code><span class="token keyword" >import</span> <span class="token punctuation" >{</span> withFirstClassMethods <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'page-fu'</span><span class="token punctuation" >;</span>
-
-<span class="token keyword" >class</span> <span class="token class-name" >Counter</span> <span class="token punctuation" >{</span>
-  <span class="token function" >constructor</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-    <span class="token keyword" >this</span><span class="token punctuation" >.</span>value <span class="token operator" >=</span> <span class="token number" >0</span><span class="token punctuation" >;</span>
-  <span class="token punctuation" >}</span>
-
-  <span class="token function" >increment</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-    <span class="token keyword" >this</span><span class="token punctuation" >.</span>value <span class="token operator" >+</span><span class="token operator" >=</span> <span class="token number" >1</span><span class="token punctuation" >;</span>
-  <span class="token punctuation" >}</span>
-
-  <span class="token function" >printValue</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-    console<span class="token punctuation" >.</span><span class="token function" >log</span><span class="token punctuation" >(</span><span class="token string" >'Value = 1'</span><span class="token punctuation" >)</span>
-  <span class="token punctuation" >}</span>
-<span class="token punctuation" >}</span>
-
-<span class="token keyword" >const</span> boundCounter <span class="token operator" >=</span> <span class="token function" >withFirstClassMethods</span><span class="token punctuation" >(</span><span class="token keyword" >new</span> <span class="token class-name" >Counter</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-
-<span class="token comment" spellcheck="true">// grab references to instance functions; no need to .bind():</span>
-<span class="token keyword" >const</span> <span class="token punctuation" >{</span> increment <span class="token punctuation" >}</span> <span class="token operator" >=</span> boundCounter<span class="token punctuation" >;</span>
-
-<span class="token function" >increment</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span> <span class="token comment" spellcheck="true">// => no error!</span>
-
-<span class="token comment" spellcheck="true">// pass them around:</span>
-<span class="token function" >setTimeout</span><span class="token punctuation" >(</span>boundCounter<span class="token punctuation" >.</span>printValue<span class="token punctuation" >,</span> <span class="token number" >0</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span> <span class="token comment" spellcheck="true">// => "Value = 1"</span></code></pre></div></div><div data-reactid="75"><div data-reactid="76"><div data-reactid="77"><h2 class="doc-group__header" data-reactid="78">Signature</h2><div class="doc-entity collapsible--expanded" data-reactid="79"><h4 class="doc-entity__header collapsible-header" title="withFirstClassMethods" data-reactid="80"><span class="anchorable-heading__text" data-reactid="81"><span class="doc-entity__name-fragment" data-reactid="82">withFirstClassMethods</span><span class="doc-entity__function-signature" data-reactid="83">(<em>object</em>: Object)</span><span class="doc-entity__method-params" data-reactid="84"><!-- react-text: 85 --> -&gt; <!-- /react-text --><span class="js-type-names" data-reactid="86">Object</span></span></span></h4><div class="doc-entity__description" data-reactid="87"></div><div class="doc-entity__tags" data-reactid="88"><div class="tag-group tag-group--tabular collapsible tag-group--single-child" data-reactid="89"><h4 class="tag-group__header collapsible-header" data-reactid="90"><i class="icon collapser collapsible__icon icon-arrow-down" data-reactid="91"></i><!-- react-text: 92 -->Parameters (<!-- /react-text --><!-- react-text: 93 -->1<!-- /react-text --><!-- react-text: 94 -->)<!-- /react-text --></h4><table data-reactid="95"><tbody data-reactid="96"><tr class="param-tag" data-reactid="97"><td class="tag-group__primary-column" data-reactid="98"><header class="param-tag__header" data-reactid="99"><code class="param-tag__name" data-reactid="100">object</code></header></td><td data-reactid="101"><code class="param-tag__types" data-reactid="102"><span class="js-type-names" data-reactid="103">Object</span></code><!-- react-empty: 104 --></td></tr></tbody></table></div><div class="tag-group tag-group--tabular collapsible tag-group--single-child" data-reactid="105"><h4 class="tag-group__header collapsible-header" data-reactid="106"><i class="icon collapser collapsible__icon icon-arrow-down" data-reactid="107"></i><!-- react-text: 108 -->Return Value<!-- /react-text --></h4><table data-reactid="109"><tbody data-reactid="110"><tr class="param-tag" data-reactid="111"><td class="tag-group__primary-column" data-reactid="112"></td><td data-reactid="113"><code class="param-tag__types" data-reactid="114"><span class="js-type-names" data-reactid="115">Object</span></code><!-- react-empty: 116 --></td></tr></tbody></table></div><!-- react-empty: 117 --><!-- react-empty: 118 --></div></div></div><div data-reactid="119"></div></div></div></div></div></div><div class="footer" data-reactid="120"><div class="markdown-text " data-reactid="121">Crafted with &#9829; using <a href="https://github.com/megadoc">megadoc</a>.</div></div></div></div></div></div></div></div></div>
+    <div id="__app__"><div data-reactroot="" data-reactid="1" data-react-checksum="820503358"><div data-reactid="2"></div><!-- react-empty: 3 --><div class="root root--with-multi-page-layout root--with-fixed-sidebar root--without-banner" data-reactid="4"><div class="root__screen" data-reactid="5"><div data-reactid="6"><div data-reactid="7"><div class="four-oh-four" data-reactid="8"><h1 data-reactid="9">404</h1><p data-reactid="10">We&#x27;re sorry, but we think there&#x27;s a very good chance you&#x27;ve hit the void!</p></div></div><div class="footer" data-reactid="11"><div class="markdown-text " data-reactid="12">Crafted with &#9829; using <a href="https://github.com/megadoc">megadoc</a>.</div></div></div></div></div></div></div>
 
     <!-- Prepare UMD container -->
     <script>
@@ -79,20 +45,23 @@ nd" target="_blank">bind</a> when you&#39;re passing around references to your r
     
     <script type="text/javascript" src="../megadoc-assets/megadoc-theme-minimalist.js"></script>
     
-    <script type="text/javascript" src="../megadoc-assets/megadoc-plugin-inline.js"></script>
-    
 
     <!-- Load the plugins and start the client -->
     <script>
+      window.startingDocumentUID = "95e519d325f9a51a6bea58544d79fc56";
+      window.startingDocumentHref = "/js/withFirstClassMethods.html";
       window.MEGADOC_PLUGINS = Object.keys(exports)
         .filter(function(key) {
-          var obj = exports[key];
+          var thing = exports[key];
 
           return (
-            obj &&
-            typeof obj === 'object' &&
-            typeof obj.name === 'string' &&
-            /megadoc-(theme|plugin)-/.test(obj.name)
+            thing &&
+            typeof thing === 'object' &&
+            typeof thing.name === 'string' &&
+            (
+              thing.plugin === true ||
+              /megadoc-(theme|plugin)-/.test(thing.name)
+            )
           );
         })
         .map(function(key) {
@@ -100,11 +69,11 @@ nd" target="_blank">bind</a> when you&#39;re passing around references to your r
         })
       ;
 
-      exports['megadoc'].startApp(Object.assign({}, exports['megadoc__config'], {
-        startingDocumentUID: "js/withFirstClassMethods",
-        startingDocumentHref: "/js/withFirstClassMethods.html",
+      exports['megadoc'].startApp(exports['megadoc__config'], {
+        startingDocumentUID: window.startingDocumentUID,
+        startingDocumentHref: window.startingDocumentHref,
         plugins: window.MEGADOC_PLUGINS,
-      }));
+      });
     </script>
   </body>
 </html>

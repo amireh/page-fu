@@ -16,153 +16,7 @@
   </head>
 
   <body class="body--themed">
-    <div id="__app__"><div data-reactroot="" data-reactid="1" data-react-checksum="846764574"><div data-reactid="2"></div><!-- react-empty: 3 --><div class="root root--with-multi-page-layout root--with-fixed-sidebar root--with-two-column-layout root--without-banner" data-reactid="4"><div class="root__screen" data-reactid="5"><div class="two-column-layout" data-reactid="6"><div class="two-column-layout__left" style="width:240px;" data-reactid="7"><div class="resizable-panel" data-reactid="8"><div class="resizable-panel__content" data-reactid="9"><div data-reactid="10"><div data-reactid="11"><nav data-reactid="12"><div data-reactid="13"><div data-reactid="14"><a href="index.html" class="class-browser__entry-link" data-reactid="15"><!-- react-text: 16 -->page-fu
-<!-- /react-text --></a></div><div data-reactid="17"><a href="" class="class-browser__entry-link active" data-reactid="18"><!-- react-text: 19 -->Examples
-<!-- /react-text --></a><div data-reactid="20"><ul class="markdown-toc" data-reactid="21"><li class="markdown-toc__entry" data-reactid="22"><a href="#utilizing-state-props" class="" data-reactid="23">Utilizing state &amp; props</a></li><li class="markdown-toc__entry" data-reactid="24"><a href="#building-a-custom-route" class="" data-reactid="25">Building a custom [[Route]]</a></li><li class="markdown-toc__entry" data-reactid="26"><a href="#creating-a-custom-decorator" class="" data-reactid="27">Creating a custom decorator</a></li></ul></div></div><div data-reactid="28"><a href="testing.html" class="class-browser__entry-link" data-reactid="29"><!-- react-text: 30 -->Testing
-<!-- /react-text --></a></div><div data-reactid="31"><a href="changelog.html" class="class-browser__entry-link" data-reactid="32"><!-- react-text: 33 -->CHANGELOG
-<!-- /react-text --></a></div></div></nav></div><div data-reactid="34"><h3 class="layout__sidebar-header" data-reactid="35">API</h3></div><div data-reactid="36"><nav class="class-browser__listing" data-reactid="37"><div class="class-browser__category" data-reactid="38"><div class="class-browser__entry" data-reactid="39"><a href="js/Route.html" class="class-browser__entry-link" data-reactid="40"><!-- react-text: 41 -->Route<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="42"><a href="js/Router.html" class="class-browser__entry-link" data-reactid="43"><!-- react-text: 44 -->Router<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="45"><a href="js/page-fu.html" class="class-browser__entry-link" data-reactid="46"><!-- react-text: 47 -->page-fu<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="48"><a href="js/withAtomicity.html" class="class-browser__entry-link" data-reactid="49"><!-- react-text: 50 -->withAtomicity<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="51"><a href="js/withFirstClassMethods.html" class="class-browser__entry-link" data-reactid="52"><!-- react-text: 53 -->withFirstClassMethods<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="54"><a href="js/withHooks.html" class="class-browser__entry-link" data-reactid="55"><!-- react-text: 56 -->withHooks<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="57"><a href="js/withProps.html" class="class-browser__entry-link" data-reactid="58"><!-- react-text: 59 -->withProps<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="60"><a href="js/withRoutingAPIs.html" class="class-browser__entry-link" data-reactid="61"><!-- react-text: 62 -->withRoutingAPIs<!-- /react-text --></a></div><div class="class-browser__entry" data-reactid="63"><a href="js/withState.html" class="class-browser__entry-link" data-reactid="64"><!-- react-text: 65 -->withState<!-- /react-text --></a></div></div></nav></div><div data-reactid="66"><button title="Search (Ctrl+K or CMD+K)" type="button" class="btn btn-default sidebar-search-button" data-reactid="67">Search</button></div></div></div><div class="ui-resizable-handle ui-resizable-e" data-reactid="68"></div></div></div><div class="two-column-layout__right" style="margin-left:240px;" data-reactid="69"><div data-reactid="70"><div class="doc-content" data-reactid="71"><div data-reactid="72"><div data-reactid="73"><div class="highlighted-text " data-reactid="74">
-<h1 class="anchorable-heading">
-  <a name="examples" class="anchorable-heading__anchor"></a>
-  <a href="#examples" class="anchorable-heading__link icon icon-link"></a><span class="anchorable-heading__text">Examples</span>
-</h1>
-<h2 class="anchorable-heading">
-  <a name="utilizing-state-props" class="anchorable-heading__anchor"></a>
-  <a href="#utilizing-state-props" class="anchorable-heading__link icon icon-link"></a><span class="anchorable-heading__text">Utilizing state &amp; props</span>
-</h2><p>This is a more complete example that shows three of the decorators at work
-together: <a href="js/withState.html" title="Decorate your route with the ability to transition between (internal) states. That state will be purged upon entering and exiting the route so you do not need to manage it." class="mega-link--internal">state</a>, <a href="js/withProps.html" title="Inject named parameters and query parameters as &quot;[[props | withProps@props]]&quot; into your route." class="mega-link--internal">props</a>, and the <a href="js/withAtomicity.html" title="Ensure that your route&#39;s exit hook is invoked only when its enter hook was also invoked during the active dispatch. Hence, &quot;atomic&quot;." class="mega-link--internal">atomicity guard</a>.</p>
-<pre class="language-javascript"><code><span class="token keyword" >import</span> page <span class="token keyword" >from</span> <span class="token string" >'page'</span>
-<span class="token keyword" >import</span> <span class="token punctuation" >{</span> Route <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'page-fu'</span>
-<span class="token keyword" >import</span> React <span class="token keyword" >from</span> <span class="token string" >'react'</span>
-<span class="token keyword" >import</span> ReactDOM <span class="token keyword" >from</span> <span class="token string" >'react-dom'</span>
-<span class="token keyword" >import</span> <span class="token punctuation" >{</span> LoadingView<span class="token punctuation" >,</span> PatientView <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'./components'</span>
-
-<span class="token keyword" >const</span> asJSON <span class="token operator" >=</span> response <span class="token operator" >=</span><span class="token operator" >></span> response<span class="token punctuation" >.</span><span class="token function" >json</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token keyword" >const</span> PatientRoute <span class="token operator" >=</span> <span class="token function" >Route</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
-  <span class="token function" >getInitialState</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-    <span class="token keyword" >return</span> <span class="token punctuation" >{</span>
-      domNode<span class="token punctuation" >:</span> document<span class="token punctuation" >.</span>body<span class="token punctuation" >.</span><span class="token function" >appendChild</span><span class="token punctuation" >(</span>document<span class="token punctuation" >.</span><span class="token function" >createElement</span><span class="token punctuation" >(</span><span class="token string" >'div'</span><span class="token punctuation" >)</span><span class="token punctuation" >)</span><span class="token punctuation" >,</span>
-      patient<span class="token punctuation" >:</span> <span class="token keyword" >null</span><span class="token punctuation" >,</span>
-    <span class="token punctuation" >}</span>
-  <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
-
-  <span class="token function" >enter</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-    <span class="token keyword" >const</span> <span class="token punctuation" >{</span> patientId <span class="token punctuation" >}</span> <span class="token operator" >=</span> <span class="token keyword" >this</span><span class="token punctuation" >.</span>props<span class="token punctuation" >.</span>params
-
-    <span class="token function" >fetch</span><span class="token punctuation" >(</span><span class="token template-string" ><span class="token string" >`/api/patients/</span><span class="token interpolation" ><span class="token interpolation-punctuation punctuation" >${</span>patientId<span class="token interpolation-punctuation punctuation" >}</span></span><span class="token string" >`</span></span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >then</span><span class="token punctuation" >(</span>asJSON<span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >then</span><span class="token punctuation" >(</span>payload <span class="token operator" >=</span><span class="token operator" >></span> <span class="token punctuation" >{</span>
-      <span class="token keyword" >if</span> <span class="token punctuation" >(</span><span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >isActive</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-        <span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >setState</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span> patient<span class="token punctuation" >:</span> payload<span class="token punctuation" >.</span>patients<span class="token punctuation" >[</span><span class="token number" >0</span><span class="token punctuation" >]</span> <span class="token punctuation" >}</span><span class="token punctuation" >)</span>
-      <span class="token punctuation" >}</span>
-    <span class="token punctuation" >}</span><span class="token punctuation" >)</span>
-
-    <span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >render</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span>
-  <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
-
-  <span class="token function" >stateDidChange</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-    <span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >render</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span>
-  <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
-
-  <span class="token function" >exit</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-    <span class="token comment" spellcheck="true">// clean up our DOM artifacts</span>
-    ReactDOM<span class="token punctuation" >.</span><span class="token function" >unmountComponentAtNode</span><span class="token punctuation" >(</span><span class="token keyword" >this</span><span class="token punctuation" >.</span>state<span class="token punctuation" >.</span>domNode<span class="token punctuation" >)</span>
-    <span class="token keyword" >this</span><span class="token punctuation" >.</span>state<span class="token punctuation" >.</span>domNode<span class="token punctuation" >.</span><span class="token function" >remove</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span>
-  <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
-
-  <span class="token function" >render</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-    <span class="token keyword" >const</span> <span class="token punctuation" >{</span> domNode<span class="token punctuation" >,</span> patient <span class="token punctuation" >}</span> <span class="token operator" >=</span> <span class="token keyword" >this</span><span class="token punctuation" >.</span>state
-
-    <span class="token keyword" >if</span> <span class="token punctuation" >(</span><span class="token operator" >!</span>patient<span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-      ReactDOM<span class="token punctuation" >.</span><span class="token function" >render</span><span class="token punctuation" >(</span><span class="token operator" >&lt;</span>LoadingView <span class="token operator" >/</span><span class="token operator" >></span><span class="token punctuation" >,</span> domNode<span class="token punctuation" >)</span><span class="token punctuation" >;</span> 
-    <span class="token punctuation" >}</span>
-    <span class="token keyword" >else</span> <span class="token punctuation" >{</span>
-      ReactDOM<span class="token punctuation" >.</span><span class="token function" >render</span><span class="token punctuation" >(</span><span class="token operator" >&lt;</span>PatientView patient<span class="token operator" >=</span><span class="token punctuation" >{</span>patient<span class="token punctuation" >}</span> <span class="token operator" >/</span><span class="token operator" >></span><span class="token punctuation" >,</span> domNode<span class="token punctuation" >)</span>
-    <span class="token punctuation" >}</span>
-  <span class="token punctuation" >}</span>
-<span class="token punctuation" >}</span><span class="token punctuation" >)</span>
-
-<span class="token comment" spellcheck="true">// register our route handler</span>
-<span class="token function" >page</span><span class="token punctuation" >(</span><span class="token string" >'/patients/:id'</span><span class="token punctuation" >,</span> PatientRoute<span class="token punctuation" >.</span>enter<span class="token punctuation" >)</span>
-page<span class="token punctuation" >.</span><span class="token function" >exit</span><span class="token punctuation" >(</span><span class="token string" >'/patients/:id'</span><span class="token punctuation" >,</span> PatientRoute<span class="token punctuation" >.</span>exit<span class="token punctuation" >)</span></code></pre>
-<h2 class="anchorable-heading">
-  <a name="building-a-custom-route" class="anchorable-heading__anchor"></a>
-  <a href="#building-a-custom-route" class="anchorable-heading__link icon icon-link"></a><span class="anchorable-heading__text">Building a custom <a href="js/Route.html" title="Create a &quot;route handler&quot; equipped with all the capabilities provided by page-fu:" class="mega-link--internal">Route</a></span>
-</h2><p>Let&#39;s assume that for some reason we want to opt out of using one or some of
-the default decorators provided by <a href="js/Route.html" title="Create a &quot;route handler&quot; equipped with all the capabilities provided by page-fu:" class="mega-link--internal">Route</a>, or maybe we want to extend it
-with a new one. We&#39;re in luck because as <code>Route</code> is just a composition of
-functions, we have the flexibility to do so.</p>
-<p>In this example we&#39;ll add a new decorator that injects our route with a DOM
-node (the implementation of which will be left for another example), and pipe
-it along the <a href="js/withState.html" title="Decorate your route with the ability to transition between (internal) states. That state will be purged upon entering and exiting the route so you do not need to manage it." class="mega-link--internal">withState</a> and <a href="js/withProps.html" title="Inject named parameters and query parameters as &quot;[[props | withProps@props]]&quot; into your route." class="mega-link--internal">withProps</a> decorators provided by page-fu:</p>
-<pre class="language-javascript"><code><span class="token keyword" >import</span> <span class="token punctuation" >{</span> withState<span class="token punctuation" >,</span> withProps <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'page-fu'</span>
-<span class="token keyword" >import</span> <span class="token punctuation" >{</span> flow <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'lodash'</span>
-<span class="token keyword" >import</span> withDOMNode <span class="token keyword" >from</span> <span class="token string" >'./withDOMNode'</span>
-
-<span class="token keyword" >const</span> WithStateAndProps <span class="token operator" >=</span> <span class="token function" >flow</span><span class="token punctuation" >(</span><span class="token punctuation" >[</span> withState<span class="token punctuation" >,</span> withProps<span class="token punctuation" >,</span> withDOMNode <span class="token punctuation" >]</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-
-<span class="token comment" spellcheck="true">// now you're free to use it just like { Route } from 'page-fu' !</span>
-<span class="token keyword" >const</span> MyRoute <span class="token operator" >=</span> <span class="token function" >WithStateAndProps</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
-  <span class="token function" >enter</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-    console<span class="token punctuation" >.</span><span class="token function" >assert</span><span class="token punctuation" >(</span><span class="token keyword" >typeof</span> <span class="token keyword" >this</span><span class="token punctuation" >.</span>props <span class="token operator" >===</span> <span class="token string" >'object'</span><span class="token punctuation" >)</span>
-    console<span class="token punctuation" >.</span><span class="token function" >assert</span><span class="token punctuation" >(</span><span class="token keyword" >typeof</span> <span class="token keyword" >this</span><span class="token punctuation" >.</span>state <span class="token operator" >===</span> <span class="token string" >'object'</span><span class="token punctuation" >)</span>
-    console<span class="token punctuation" >.</span><span class="token function" >assert</span><span class="token punctuation" >(</span><span class="token keyword" >typeof</span> <span class="token keyword" >this</span><span class="token punctuation" >.</span>domNode <span class="token operator" >===</span> <span class="token string" >'object'</span><span class="token punctuation" >)</span>
-  <span class="token punctuation" >}</span>
-<span class="token punctuation" >}</span><span class="token punctuation" >)</span></code></pre>
-<h2 class="anchorable-heading">
-  <a name="creating-a-custom-decorator" class="anchorable-heading__anchor"></a>
-  <a href="#creating-a-custom-decorator" class="anchorable-heading__link icon icon-link"></a><span class="anchorable-heading__text">Creating a custom decorator</span>
-</h2><p>Building on the previous example, let&#39;s now look into the implementation
-of such a <code>withDOMNode</code> decorator.</p>
-<p>In all respects, it&#39;s just like a regular <code>page.js</code> middleware but with two
-caveats we need to watch out for:</p>
-<ul>
-<li>the original <code>enter</code> and <code>exit</code> hooks must be called with the right context, <code>this</code>, and forwarded the same arguments they expect (<code>ctx, next</code>)</li>
-<li>we must ensure that the next <code>exit</code> in the chain is aware of its <code>next</code>
-callback, if it&#39;s not, we <a href="js/ensureNextIsCalled.html" title="Ensure that the given function will always &quot;yield&quot; by calling next on its behalf if needed." class="mega-link--internal">call it on its behalf</a></li>
-</ul>
-<pre class="language-javascript"><code><span class="token keyword" >import</span> <span class="token punctuation" >{</span> withState<span class="token punctuation" >,</span> withProps<span class="token punctuation" >,</span> ensureNextIsCalled <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'page-fu'</span>
-<span class="token keyword" >import</span> <span class="token punctuation" >{</span> flow <span class="token punctuation" >}</span> <span class="token keyword" >from</span> <span class="token string" >'lodash'</span>
-
-<span class="token keyword" >const</span> withDOMNode <span class="token operator" >=</span> instance <span class="token operator" >=</span><span class="token operator" >></span> <span class="token punctuation" >{</span>
-  <span class="token comment" spellcheck="true">// grab a reference to the original enter &amp; exit hooks so that we can</span>
-  <span class="token comment" spellcheck="true">// yield to them in our overrides:</span>
-  <span class="token comment" spellcheck="true">// </span>
-  <span class="token comment" spellcheck="true">// Note that they may not always exist so don't assume anything!</span>
-  <span class="token keyword" >const</span> enter <span class="token operator" >=</span> instance<span class="token punctuation" >.</span>enter <span class="token operator" >||</span> Function<span class="token punctuation" >.</span>prototype<span class="token punctuation" >;</span>
-
-  <span class="token comment" spellcheck="true">// read more about this in the ensureNextIsCalled documentation page</span>
-  <span class="token keyword" >const</span> exit <span class="token operator" >=</span> <span class="token function" >ensureNextIsCalled</span><span class="token punctuation" >(</span>instance<span class="token punctuation" >.</span>exit<span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-
-  <span class="token comment" spellcheck="true">// we can utilize the closure to guard our private state from the other</span>
-  <span class="token comment" spellcheck="true">// decorators and the handler itself too:</span>
-  <span class="token keyword" >let</span> domNode<span class="token punctuation" >;</span>
-
-  <span class="token keyword" >return</span> Object<span class="token punctuation" >.</span><span class="token function" >assign</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span><span class="token punctuation" >}</span><span class="token punctuation" >,</span> instance<span class="token punctuation" >,</span> <span class="token punctuation" >{</span>
-    <span class="token function" >enter</span><span class="token punctuation" >(</span>ctx<span class="token punctuation" >,</span> next<span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-      <span class="token comment" spellcheck="true">// set up our state for this dispatch:</span>
-      domNode <span class="token operator" >=</span> document<span class="token punctuation" >.</span><span class="token function" >createElement</span><span class="token punctuation" >(</span><span class="token string" >'div'</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-
-      <span class="token comment" spellcheck="true">// now yield to the next in chain:</span>
-      enter<span class="token punctuation" >.</span><span class="token function" >call</span><span class="token punctuation" >(</span><span class="token keyword" >this</span><span class="token punctuation" >,</span> ctx<span class="token punctuation" >,</span> next<span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-    <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
-
-    <span class="token comment" spellcheck="true">// any public APIs can go here:</span>
-    <span class="token function" >getDOMNode</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-      <span class="token keyword" >return</span> domNode<span class="token punctuation" >;</span>
-    <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
-
-    <span class="token function" >exit</span><span class="token punctuation" >(</span>ctx<span class="token punctuation" >,</span> next<span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-      <span class="token comment" spellcheck="true">// wait for the rest of chain to clean up *before* we clean</span>
-      <span class="token comment" spellcheck="true">// up after ourselves:</span>
-      exit<span class="token punctuation" >.</span><span class="token function" >call</span><span class="token punctuation" >(</span><span class="token keyword" >this</span><span class="token punctuation" >,</span> ctx<span class="token punctuation" >,</span> err <span class="token operator" >=</span><span class="token operator" >></span> <span class="token punctuation" >{</span>
-        <span class="token comment" spellcheck="true">// now we clean up:</span>
-        domNode<span class="token punctuation" >.</span><span class="token function" >remove</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-        domNode <span class="token operator" >=</span> <span class="token keyword" >null</span><span class="token punctuation" >;</span>
-
-        <span class="token comment" spellcheck="true">// and finally, let the next handler take over:</span>
-        <span class="token function" >next</span><span class="token punctuation" >(</span>err<span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-      <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-    <span class="token punctuation" >}</span>
-  <span class="token punctuation" >}</span><span class="token punctuation" >)</span>
-<span class="token punctuation" >}</span><span class="token punctuation" >;</span></code></pre></div></div></div></div><div class="footer" data-reactid="75"><div class="markdown-text " data-reactid="76">Crafted with &#9829; using <a href="https://github.com/megadoc">megadoc</a>.</div></div></div></div></div></div></div></div></div>
+    <div id="__app__"><div data-reactroot="" data-reactid="1" data-react-checksum="820503358"><div data-reactid="2"></div><!-- react-empty: 3 --><div class="root root--with-multi-page-layout root--with-fixed-sidebar root--without-banner" data-reactid="4"><div class="root__screen" data-reactid="5"><div data-reactid="6"><div data-reactid="7"><div class="four-oh-four" data-reactid="8"><h1 data-reactid="9">404</h1><p data-reactid="10">We&#x27;re sorry, but we think there&#x27;s a very good chance you&#x27;ve hit the void!</p></div></div><div class="footer" data-reactid="11"><div class="markdown-text " data-reactid="12">Crafted with &#9829; using <a href="https://github.com/megadoc">megadoc</a>.</div></div></div></div></div></div></div>
 
     <!-- Prepare UMD container -->
     <script>
@@ -192,20 +46,23 @@ callback, if it&#39;s not, we <a href="js/ensureNextIsCalled.html" title="Ensure
     
     <script type="text/javascript" src="megadoc-assets/megadoc-theme-minimalist.js"></script>
     
-    <script type="text/javascript" src="megadoc-assets/megadoc-plugin-inline.js"></script>
-    
 
     <!-- Load the plugins and start the client -->
     <script>
+      window.startingDocumentUID = "5e493e45dfdf06bb17ff88ee95028f1d";
+      window.startingDocumentHref = "/examples.html";
       window.MEGADOC_PLUGINS = Object.keys(exports)
         .filter(function(key) {
-          var obj = exports[key];
+          var thing = exports[key];
 
           return (
-            obj &&
-            typeof obj === 'object' &&
-            typeof obj.name === 'string' &&
-            /megadoc-(theme|plugin)-/.test(obj.name)
+            thing &&
+            typeof thing === 'object' &&
+            typeof thing.name === 'string' &&
+            (
+              thing.plugin === true ||
+              /megadoc-(theme|plugin)-/.test(thing.name)
+            )
           );
         })
         .map(function(key) {
@@ -213,11 +70,11 @@ callback, if it&#39;s not, we <a href="js/ensureNextIsCalled.html" title="Ensure
         })
       ;
 
-      exports['megadoc'].startApp(Object.assign({}, exports['megadoc__config'], {
-        startingDocumentUID: "articles/examples",
-        startingDocumentHref: "/examples.html",
+      exports['megadoc'].startApp(exports['megadoc__config'], {
+        startingDocumentUID: window.startingDocumentUID,
+        startingDocumentHref: window.startingDocumentHref,
         plugins: window.MEGADOC_PLUGINS,
-      }));
+      });
     </script>
   </body>
 </html>

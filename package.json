@@ -21,12 +21,11 @@
     "chai-assert-change": "1.1.0",
     "eslint": "3.19.0",
     "eslint-plugin-mocha": "4.9.0",
-    "megadoc-cli": "6.0.0-beta.3",
-    "megadoc-compiler": "6.0.0-beta.3",
-    "megadoc-html-serializer": "6.0.0-beta.3",
-    "megadoc-plugin-js": "6.0.0-beta.2",
-    "megadoc-plugin-markdown": "6.0.0-beta.2",
-    "megadoc-theme-minimalist": "6.0.0-beta.3",
+    "megadoc-cli": "6.5.0",
+    "megadoc-compiler": "6.5.0",
+    "megadoc-html-serializer": "6.5.0",
+    "megadoc-preset-js": "6.5.0",
+    "megadoc-theme-minimalist": "6.0.0",
     "mocha": "3.3.0",
     "sinon": "2.2.0"
   }

@@ -21,7 +21,8 @@ module.exports = {
       banner: false,
       customLayouts: require('./doc/layout'),
     },
-    notFoundComponent: path.resolve(__dirname, 'doc/pages/404.js'),
+    // broken since megadoc 6.5 :(
+    // notFoundComponent: path.resolve(__dirname, 'doc/pages/404.js'),
   }],
 
   sources: [
