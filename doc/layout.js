@@ -3,7 +3,7 @@ module.exports = [
     match: { by: 'url', on: '*' },
     regions: [
       {
-        name: 'Layout::Content',
+        name: 'Core::Content',
         options: { framed: true },
         outlets: [
           {
@@ -15,7 +15,7 @@ module.exports = [
             }
           },
           {
-            name: 'CJS::Module',
+            name: 'JS::Module',
             match: {
               by: 'namespace',
               on: 'js'
@@ -25,25 +25,25 @@ module.exports = [
       },
 
       {
-        name: 'Layout::Sidebar',
+        name: 'Core::Sidebar',
         outlets: [
           {
             name: 'Markdown::Browser',
             using: 'articles'
           },
           {
-            name: 'Layout::SidebarHeader',
+            name: 'Core::SidebarHeader',
             options: {
               text: 'API'
             }
           },
           {
-            name: 'CJS::ClassBrowser',
+            name: 'JS::Browser',
             using: 'js',
           },
 
           {
-            name: 'Layout::SidebarSearch',
+            name: 'Core::SidebarSearch',
             options: {
               text: 'Search'
             }

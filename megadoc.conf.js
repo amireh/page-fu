@@ -35,7 +35,9 @@ module.exports = {
         strict: false,
         linkToNamespacesInBrowser: false,
         parserOptions: {
-          presets: [['es2015', { modules: false }]],
+          presets: [
+            [ path.resolve(__dirname, 'node_modules/babel-preset-es2015'), { modules: false }]
+          ],
           babelrc: false,
         },
         builtInTypes: [
